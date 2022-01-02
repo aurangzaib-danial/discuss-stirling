@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root "main#index"
 
   get "sign-up", to: "registrations#new"

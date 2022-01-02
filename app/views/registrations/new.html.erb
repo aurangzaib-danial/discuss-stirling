@@ -1,0 +1,28 @@
+<h1>Sign up</h1>
+
+<%= form_with model: @user, url: sign_up_path do |form| %>
+  
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div>
+    Choose account type: 
+    <%= form.radio_button :private, "1" %> Private
+    <%= form.radio_button :private, "0" %> Public
+  </div>
+
+  <%= form.submit %>
+
+<% end %>
