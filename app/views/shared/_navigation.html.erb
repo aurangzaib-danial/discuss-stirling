@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="/">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,15 +11,21 @@
           <a class="nav-link" href="#">Ask Question</a>
         </li>
         
-        <li class="nav-item">
-          <%= link_to 'Sign in', sign_in_path, class: "nav-link" %>
-        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <a href="#" class="nav-link"><%= Current.user.private? ? "Private account" : Current.user.name %></a>
+          </li>
+        <% else %>
+
+          <li class="nav-item">
+            <%= link_to 'Sign in', sign_in_path, class: "nav-link" %>
+          </li>
+          
+          <li class="nav-item">
+            <%= link_to 'Sign up', sign_up_path, class: "nav-link" %>
+          </li>
+        <% end %>
         
-        <li class="nav-item">
-          <%= link_to 'Sign up', sign_up_path, class: "nav-link" %>
-        </li>
-
-
       </ul>
     </div>
   </div>
