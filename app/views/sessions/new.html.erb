@@ -1,15 +1,37 @@
-<h1>Sign</h1>
+<main id="signIn" class="container mt-3">
 
-<%= form_with url: sign_in_path do |form| %>
-  <div>
-    <%= form.label :email %>
-    <%= form.email_field :email %>
+
+  <div class="d-grid mb-4 mt-5">
+    <button type="button" class="btn btn-primary"><i class="bi bi-facebook"></i> Sign in with Facebook </button>
   </div>
 
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
+  <%= form_with model: @user, url: sign_in_path do |form| %>
 
-  <%= form.submit 'Sign in' %>
-<% end %>
+    <div class="mb-3 <%= 'has-validation' if @user.errors[:sign_in].present? %>">
+      <%= form.label :email, class: "form-label" %>
+      <%= form.email_field :email, class: "form-control #{ 'is-invalid' if @user.errors[:sign_in].present?}", required: true %>
+
+      <% if @user.errors[:sign_in].present? %>
+        <div class="invalid-feedback">
+          <%= @user.errors[:sign_in].first %>
+        </div>
+      <% end %>
+      
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :password, class: "form-label" %>
+      <%= form.password_field :password, class: "form-control", required: true %>
+    </div>
+
+    <%= form.submit 'Sign in', class: "btn btn-primary" %>
+
+  <% end %>
+
+  <p class="mt-4">Don't have an account? <%= link_to 'Sign up', sign_up_path, class: "text-decoration-none" %></p>
+
+</main>
+
+
+
+
