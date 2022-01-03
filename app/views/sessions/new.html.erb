@@ -1,4 +1,4 @@
-<main id="signIn" class="container mt-3">
+<main class="container mt-3 authentication">
 
 
   <div class="d-grid mb-4 mt-5">
@@ -8,19 +8,7 @@
 
   <%= form_with model: @user, url: sign_in_path, method: :post do |form| %>
 
-    <%= content_tag :div, class: "mb-3 #{'has-validation' if @user.errors[:sign_in].present?}" do %>
-
-      <%= form.label :email, class: "form-label" %>
-      
-      <%= form.email_field :email, class: "form-control #{ 'is-invalid' if @user.errors[:sign_in].present?}", required: true %>
-
-      <% if @user.errors[:sign_in].present? %>
-        <div class="invalid-feedback">
-          <%= @user.errors[:sign_in].first %>
-        </div>
-      <% end %>
-
-    <% end %>
+    <%= custom_field(form, :email, :email) %>
 
     <div class="mb-4">
       <%= form.label :password, class: "form-label" %>

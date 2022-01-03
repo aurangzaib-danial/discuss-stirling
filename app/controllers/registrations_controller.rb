@@ -1,6 +1,10 @@
 class RegistrationsController < ApplicationController
   def new
-    @user = User.new
+    if !params[:account].present? || !params[:account].in?(["private", "public"])
+      redirect_to select_account_path
+    else
+      @user = User.new
+    end
   end
 
   def create

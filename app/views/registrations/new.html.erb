@@ -1,28 +1,26 @@
-<h1>Sign up</h1>
+<main class="container mt-3 authentication">
 
-<%= form_with model: @user, url: sign_up_path do |form| %>
-  
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="d-grid mb-4 mt-5">
+    <button type="button" class="btn btn-primary"><i class="bi bi-facebook"></i> Sign up with Facebook </button>
   </div>
 
-  <div>
-    <%= form.label :email %>
-    <%= form.email_field :email %>
-  </div>
 
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
+  <%= form_with model: @user, url: sign_up_path(account: params[:account]) do |form| %>
 
-  <div>
-    Choose account type: 
-    <%= form.radio_button :private, "1" %> Private
-    <%= form.radio_button :private, "0" %> Public
-  </div>
+    <%= custom_field(form, :text, :name) %>
+    <%= custom_field(form, :email, :email) %>
+    <%= custom_field(form, :password, :password) %>
 
-  <%= form.submit 'Sign up' %>
 
-<% end %>
+    <div class="d-grid">
+      <%= form.submit 'Sign up', class: "btn btn-primary" %>
+    </div>
+
+  <% end %>
+
+
+  <p class="mt-4">Already have an account? <%= link_to 'Sign in', sign_in_path, class: "text-decoration-none" %></p>
+
+</main>
+
+
