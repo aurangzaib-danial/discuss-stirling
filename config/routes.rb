@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get "sign-up", to: "registrations#new"
   post "sign-up", to: "registrations#create"
+  get "select-account", to: "registrations#select_account"
 
   get "sign-in", to: "sessions#new"
   post "sign-in", to: "sessions#create"
