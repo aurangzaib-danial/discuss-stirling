@@ -5,10 +5,13 @@
     <button type="button" class="btn btn-primary"><i class="bi bi-facebook"></i> Sign in with Facebook </button>
   </div>
 
-  <%= form_with model: @user, url: sign_in_path do |form| %>
 
-    <div class="mb-3 <%= 'has-validation' if @user.errors[:sign_in].present? %>">
+  <%= form_with model: @user, url: sign_in_path, method: :post do |form| %>
+
+    <%= content_tag :div, class: "mb-3 #{'has-validation' if @user.errors[:sign_in].present?}" do %>
+
       <%= form.label :email, class: "form-label" %>
+      
       <%= form.email_field :email, class: "form-control #{ 'is-invalid' if @user.errors[:sign_in].present?}", required: true %>
 
       <% if @user.errors[:sign_in].present? %>
@@ -16,22 +19,23 @@
           <%= @user.errors[:sign_in].first %>
         </div>
       <% end %>
-      
-    </div>
 
-    <div class="mb-3">
+    <% end %>
+
+    <div class="mb-4">
       <%= form.label :password, class: "form-label" %>
       <%= form.password_field :password, class: "form-control", required: true %>
     </div>
 
-    <%= form.submit 'Sign in', class: "btn btn-primary" %>
+    <div class="d-grid">
+      <%= form.submit 'Sign in', class: "btn btn-primary" %>
+    </div>
 
   <% end %>
+
 
   <p class="mt-4">Don't have an account? <%= link_to 'Sign up', sign_up_path, class: "text-decoration-none" %></p>
 
 </main>
-
-
 
 
