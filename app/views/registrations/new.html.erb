@@ -8,8 +8,16 @@
   <%= form_with model: @user, url: sign_up_path(account: params[:account]) do |form| %>
 
     <%= custom_field(form, :text, :name) %>
-    <%= custom_field(form, :email, :email) %>
-    <%= custom_field(form, :password, :password) %>
+    
+    <%= custom_field(form, :email, :email) do %>
+      <% if params[:account] == "private" %>
+        <div class="form-text">We'll never share your email with anyone else.</div>
+      <% end %>
+    <% end %>
+
+    <%= custom_field(form, :password, :password) do %>
+      <div class="form-text">Password must contain at least eight characters.</div>
+    <% end %>
 
 
     <div class="d-grid">
