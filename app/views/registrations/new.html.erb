@@ -7,7 +7,7 @@
 
   <%= form_with model: @user, url: sign_up_path(account: params[:account]) do |form| %>
 
-    <%= custom_field(form, :text, :name) %>
+    <%= custom_field(form, :text, :name) if params[:account] == "public" %>
     
     <%= custom_field(form, :email, :email) do %>
       <% if params[:account] == "private" %>
