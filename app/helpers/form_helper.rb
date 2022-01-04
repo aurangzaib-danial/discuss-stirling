@@ -9,7 +9,7 @@ module FormHelper
       html = <<-HTML
         #{form.label attribute, class: "form-label"}
         #{form.send("#{field_type}_field", attribute, class: "form-control #{ 'is-invalid' if form.object.errors[attribute].present?}", required: true)}
-        #{content_tag :div, form.object.errors[attribute].first, class: "invalid-feedback" if form.object.errors[attribute].present?}
+        #{content_tag :div, form.object.errors.where(attribute).first.full_message, class: "invalid-feedback" if form.object.errors[attribute].present?}
       HTML
 
       html.html_safe

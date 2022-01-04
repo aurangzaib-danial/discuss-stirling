@@ -9,11 +9,12 @@ class RegistrationsController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.private = true if params[:account] == "private"
     if @user.save
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

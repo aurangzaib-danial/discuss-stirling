@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      @user.errors.add(:email, "The email or password is incorrect.")
+      @user.errors.add(:email, "or password is incorrect")
       render :new, status: :unprocessable_entity
     end
   end
