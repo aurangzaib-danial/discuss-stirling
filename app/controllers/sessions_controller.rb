@@ -8,8 +8,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_email(user_params[:email])
 
     if @user.present? && @user.authenticate(user_params[:password])
-      session[:user_id] = @user.id
-      redirect_to root_path
+      login(@user)
     else
       @user.errors.add(:email, "or password is incorrect")
       render :new, status: :unprocessable_entity

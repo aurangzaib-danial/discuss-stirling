@@ -11,4 +11,5 @@ Rails.application.routes.draw do
 
   delete "sign-out", to: "sessions#destroy"
 
+  get "/auth/facebook/callback", to: "omniauth_callbacks#facebook"
 end

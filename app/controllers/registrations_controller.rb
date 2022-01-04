@@ -11,8 +11,7 @@ class RegistrationsController < ApplicationController
     @user = User.new(user_params)
     @user.private = true if params[:account] == "private"
     if @user.save
-      session[:user_id] = @user.id
-      redirect_to root_path
+      login(@user)
     else
       render :new, status: :unprocessable_entity
     end

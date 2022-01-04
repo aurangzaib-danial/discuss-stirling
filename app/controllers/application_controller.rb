@@ -9,4 +9,9 @@ class ApplicationController < ActionController::Base
   def user_signed_in?
     Current.user.present?
   end
+
+  def login(user)
+    session[:user_id] = user.id
+    redirect_to root_path
+  end
 end
