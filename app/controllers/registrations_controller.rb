@@ -9,7 +9,7 @@ class RegistrationsController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params)    
     @user.set_account(params[:account])
     if @user.save
       login(@user)
@@ -20,6 +20,6 @@ class RegistrationsController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :private)
+    params.require(:user).permit(:name, :email, :password)
   end
 end

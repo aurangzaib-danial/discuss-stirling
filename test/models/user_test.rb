@@ -1,14 +1,9 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
-  test "name must be present" do
-    user = User.new
+  test "user's name is required if user's account is public " do
+    user = User.new(account: "public_account")
     user.valid?
-    assert user.errors[:name].present?
-  end
-  test "user's name is not required if user is private " do
-    user = User.new(private: true)
-    user.valid?
-    assert_not user.errors[:name].any?
+    assert user.errors[:name].any?
   end
 end
