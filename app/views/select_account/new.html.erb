@@ -10,7 +10,7 @@
           <p class="card-text">Post questions without sharing any information about yourself.</p>
         </div>
         <div class="card-footer">
-          <%= link_to 'Create Private', sign_up_path(account: "private"), class: "btn btn-primary" %>
+          <%= select_account_button "private" %>
         </div>
       </div>
     </div>
@@ -21,7 +21,7 @@
           <p class="card-text">Your name will be visible to other users.</p>
         </div>
         <div class="card-footer">
-          <%= link_to 'Create Public', sign_up_path(account: "public"), class: "btn btn-primary" %>
+          <%= select_account_button "public" %>
         </div>
       </div>
     </div>
