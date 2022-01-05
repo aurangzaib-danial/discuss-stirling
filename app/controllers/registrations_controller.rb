@@ -9,7 +9,7 @@ class RegistrationsController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.private = true if params[:account] == "private"
+    @user.set_account_type(params[:account])
     if @user.save
       login(@user)
     else
