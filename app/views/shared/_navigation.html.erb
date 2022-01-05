@@ -8,7 +8,7 @@
           <a class="nav-link" href="#">Ask Question</a>
         </li>
 
-        <% if user_signed_in? %>
+        <% if user_logged_in? %>
           <li>
             <%= button_to 'Sign out', sign_out_path, method: :delete, class: "btn btn-link nav-link" %>
           </li>

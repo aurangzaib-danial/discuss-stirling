@@ -1,14 +1,14 @@
 class ApplicationController < ActionController::Base
-  before_action :set_current_user, if: :user_signed_in?
-  before_action :ask_user_to_select_account, if: :user_signed_in?
+  before_action :set_current_user, if: :user_logged_in?
+  before_action :ask_user_to_select_account, if: :user_logged_in?
 
-  helper_method :user_signed_in?
+  helper_method :user_logged_in?
 
   def set_current_user
     Current.user = User.find(session[:user_id])
   end
 
-  def user_signed_in?
+  def user_logged_in?
     session[:user_id].present?
   end
 
