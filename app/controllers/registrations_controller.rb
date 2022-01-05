@@ -1,4 +1,5 @@
 class RegistrationsController < ApplicationController
+  before_action :redirect_if_user_logged_in
   
   def new
     if !params[:account].present? || !params[:account].in?(["private", "public"])

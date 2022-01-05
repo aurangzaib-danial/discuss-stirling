@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
   skip_before_action :ask_user_to_select_account, only: :destroy
+  before_action :redirect_if_user_logged_in, except: :destroy
+  before_action :authenticate_user!, only: :destroy
 
   def new
     @user = User.new

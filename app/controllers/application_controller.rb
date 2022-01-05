@@ -20,4 +20,12 @@ class ApplicationController < ActionController::Base
     session[:user_id] = user.id
     redirect_to root_path
   end
+
+  def authenticate_user!
+    redirect_to root_path unless user_logged_in?
+  end
+
+  def redirect_if_user_logged_in
+    redirect_to root_path if user_logged_in?
+  end
 end

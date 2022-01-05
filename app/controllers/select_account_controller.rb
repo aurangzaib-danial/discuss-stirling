@@ -1,6 +1,7 @@
 class SelectAccountController < ApplicationController
   before_action :redirect_if_account_selected, if: :user_logged_in?
   skip_before_action :ask_user_to_select_account
+  before_action :authenticate_user!, only: :update
 
   # when the account is already created using Facebook login
   def update
