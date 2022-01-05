@@ -10,7 +10,7 @@ class RegistrationsController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.set_account_type(params[:account])
+    @user.set_account(params[:account])
     if @user.save
       login(@user)
     else

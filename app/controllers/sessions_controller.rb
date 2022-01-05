@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :ask_user_to_select_account_type, if: :user_signed_in?, except: :destroy
+  skip_before_action :ask_user_to_select_account, only: :destroy
 
   def new
     @user = User.new

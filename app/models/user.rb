@@ -5,8 +5,8 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true
   validates :password, length: { minimum: 8, message: "is too short" }, allow_blank: true
 
-  def set_account_type(type)
-    self.private = true if type == "private"
-    self.account_type_selected = true
+  def set_account(account)
+    self.private = true if account == "private"
+    self.account_selected = true
   end
 end
