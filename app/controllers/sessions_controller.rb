@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
     if @user.present? && @user.authenticate(user_params[:password])
       login(@user)
     else
+      @user ||= User.new
       @user.errors.add(:email, "or password is incorrect")
       render :new, status: :unprocessable_entity
     end
