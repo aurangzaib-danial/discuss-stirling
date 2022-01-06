@@ -10,7 +10,7 @@
 
         <% if user_logged_in? %>
           <li>
-            <%= button_to 'Sign out', sign_out_path, method: :delete, class: "btn btn-link nav-link" %>
+            <%= button_to 'Log out', logout_path, method: :delete, class: "btn btn-link nav-link" %>
           </li>
         <% else %>
           <li class="nav-item">
