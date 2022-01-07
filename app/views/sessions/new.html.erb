@@ -11,7 +11,10 @@
     <%= custom_field(form, :email, :email) %>
 
     <div class="mb-4">
-      <%= form.label :password, class: "form-label" %>
+      <div class="d-flex">
+        <%= form.label :password, class: "form-label me-auto" %>
+        <small><%= link_to "Forgot password?", password_reset_path, class: "text-decoration-none" %></small>
+      </div>
       <%= form.password_field :password, class: "form-control", required: true %>
     </div>
 
