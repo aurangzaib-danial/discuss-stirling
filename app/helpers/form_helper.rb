@@ -3,7 +3,7 @@ module FormHelper
   # Generates revelant form field.
   # Also, wraps the field with errors 
   # if the object's attribute has any error .
-  def custom_field(form, field_type, attribute, label = attribute, &block)
+  def custom_field(form, field_type, attribute, label = attribute.capitalize, &block)
     block_content = capture(&block) if block_given?
     content_tag :div, class: "mb-3 #{'has-validation' if form.object.errors[attribute].present?}" do
 
