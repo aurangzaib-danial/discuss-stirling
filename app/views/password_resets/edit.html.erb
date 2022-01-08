@@ -1,0 +1,20 @@
+<%= title "Reset Password" %>
+
+<main class="container mt-3 auth">
+
+
+  <%= form_with model: @user, url: password_reset_edit_path(token: params[:token]) do |form| %>
+
+    <div class="mt-4 mb-4">
+      <%= custom_field(form, :password, :password, "New Password") %>
+    </div>
+
+    <div class="d-grid">
+      <%= form.submit 'Reset Password', class: "btn btn-primary" %>
+    </div>
+
+  <% end %>
+
+</main>
+
+
