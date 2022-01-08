@@ -5,3 +5,35 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+subject_titles = [
+  "Accounting and Finance",
+  "Aquaculture",
+  "Biology",
+  "Business and Management",
+  "Computer Science and Software Engineering",
+  "Criminology",
+  "Data Science and Data Analytics",
+  "Economics",
+  "English and Literature",
+  "Environmental Science",
+  "Film and Media Studies",
+  "Geography",
+  "Health and Allied Subjects",
+  "History",
+  "Journalism and Publishing",
+  "Languages and TESOL",
+  "Law",
+  "Marketing and Public Relations (PR)",
+  "Mathematics",
+  "Nursing",
+  "Philosophy and Religion",
+  "Politics",
+  "Psychology",
+  "Social Studies",
+  "Sport",
+  "Teaching and Education",
+  "General"
+]
+
+subject_titles.each {|subject_title| Subject.create!(title: subject_title)}
