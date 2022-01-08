@@ -1,5 +1,4 @@
-Rails.application.routes.draw do
-  resources :questions
+Rails.application.routes.draw do  
   
   root "main#index"
 
@@ -20,4 +19,8 @@ Rails.application.routes.draw do
   post "password/reset", to: "password_resets#create"
   get "password/reset/edit", to: "password_resets#edit"
   patch "password/reset/edit", to: "password_resets#update"
+
+
+  resources :questions, only: [:create]
+  get "/questions/ask", to: "questions#ask", as: "ask_question"
 end

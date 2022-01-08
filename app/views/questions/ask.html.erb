@@ -1,0 +1,22 @@
+<% title "Ask a question" %>
+
+<main class="container mt-3">
+  
+
+  <h2>Ask a question</h2>
+
+  <%= form_with model: @question, class: "mt-4" do |form| %>
+
+    <div class="mb-3">
+      <%= form.collection_select :subject_id, Subject.order(:title), :id, :title, {prompt: "Select subject"}, class: "form-select", required: true  %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :title, class: "form-label" %>
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
+
+    <%= form.submit class: "btn btn-primary" %>
+  <% end %>
+
+</main>
