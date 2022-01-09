@@ -1,5 +1,4 @@
 class PasswordResetsController < ApplicationController
-  before_action :redirect_if_user_logged_in
   before_action :set_user, except: [:new, :create]
 
   def create
