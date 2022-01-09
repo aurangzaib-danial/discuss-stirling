@@ -1,4 +1,4 @@
-class SelectAccountController < ApplicationController
+class Users::SelectAccountController < ApplicationController
   # before_action :redirect_if_account_selected, if: :user_signed_in?
   # skip_before_action :ask_user_to_select_account
   before_action :authenticate_user!, only: :update
