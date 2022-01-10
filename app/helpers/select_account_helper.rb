@@ -6,7 +6,8 @@ module SelectAccountHelper
     if user_signed_in?
       button_to text, select_account_path(query_params), options.merge(method: :patch)
     else
-      link_to text, sign_up_path(query_params), options
+      link_to text, new_user_registration_path(query_params), options
     end 
   end
 end
+
