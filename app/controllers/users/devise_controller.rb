@@ -1,3 +1,7 @@
+# => This controller enhances Devise Responder class to
+# => render status of unprocessable_entity when a user object has errors.
+# => This directs Turbo to render the entire html response instead of turbo stream.
+
 class Users::DeviseController < ApplicationController
   class Responder < ActionController::Responder
     def to_turbo_stream

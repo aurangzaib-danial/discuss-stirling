@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# => Following class is to make devise work with Turbo
 class TurboFailureApp < Devise::FailureApp
   def respond
     if request_format == :turbo_stream
@@ -13,6 +14,17 @@ class TurboFailureApp < Devise::FailureApp
     %w(html turbo_stream */*).include? request_format.to_s
   end
 end
+
+# => Configurations altered for devise config to adapt it with Turbo
+# ==> Controller configuration
+# Configure the parent class to the devise controllers.
+# config.parent_controller = 'TurboController'
+
+# ==> Warden configuration
+# config.warden do |manager|
+  # manager.failure_app = TurboFailureApp
+end
+
 
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others
