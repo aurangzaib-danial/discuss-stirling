@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<% title "Sign Up" %>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -25,5 +25,8 @@
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+<!-- 
+<main class="container mt-3 auth">
+  
+</main>
+ -->
