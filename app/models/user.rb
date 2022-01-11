@@ -11,9 +11,8 @@ class User < ApplicationRecord
 
   has_many :questions
 
-  def set_account(account)
-    self.account = account + "_account" # private_account
-    self.account_selected = true
+  def set_account!(account)
+    update!(account: account + "_account", account_selected: true)
   end
   
   def self.from_omniauth(auth)
