@@ -2,6 +2,8 @@
 
 <main class="container mt-3 auth">
 
+  <%= facebook_button "Sign up with Facebook" %>
+
   <%= form_for resource, as: resource_name, url: user_registration_path(account: params[:account]) do |f| %>
 
     <% if params[:account] == "public" %>

@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  devise :omniauthable, omniauth_providers: %i[facebook]
 
   enum :account, [:private_account, :public_account], default: :private_account # 0 (default) => private_account in database
 
@@ -13,5 +14,13 @@ class User < ApplicationRecord
   def set_account(account)
     self.account = account + "_account" # private_account
     self.account_selected = true
+  end
+  
+  def self.from_omniauth(auth)
+    user = find_or_initialize_by(email: auth.info.email) do |u|
+      u.password = Devise.friendly_token[0, 20]
+    end
+    user.update(name: auth.info.name) # always update user's name, they might have changed it on Facebook
+    user
   end
 end
