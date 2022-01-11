@@ -9,6 +9,7 @@
         </li>
 
         <% if user_signed_in? %>
+          <li><%= current_user.private_account? ? "Private account" : current_user.name %></li>
           <li>
             <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: "btn btn-link nav-link" %>
           </li>

@@ -23,7 +23,7 @@ end
 # ==> Warden configuration
 # config.warden do |manager|
   # manager.failure_app = TurboFailureApp
-end
+# end
 
 
 # Assuming you have not yet modified this file, each configuration option below
