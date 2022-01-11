@@ -29,6 +29,8 @@
     <%# User model expects "public_account" not just "public"  %> 
     <%= f.hidden_field :account, value: params[:account] + "_account"  %>
 
+    <%= f.hidden_field :account_selected, value: true  %>
+
 
     <div class="d-grid">
       <%= f.submit "Sign up", class: "btn btn-primary" %>  
