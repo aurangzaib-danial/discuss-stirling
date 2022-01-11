@@ -1,0 +1,5 @@
+<%= form.send(field_type, attribute, options.merge({class: "form-control is-invalid", "aria-describedby": "#{attribute}ErrorFeedback", required: true})) %>
+
+<%= content_tag :div, class: "invalid-feedback", id: "#{attribute}ErrorFeedback" do %>
+  <%= form.object.errors.where(attribute).first.full_message %>
+<% end %>
