@@ -3,6 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  before_action :redirect_if_account_not_selected, only: [:new, :create]
 
   # GET /resource/sign_up
   # def new
@@ -59,4 +60,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  private
+  def redirect_if_account_not_selected
+    unless params[:account].in? ["private", "public"]
+      redirect_to users_select_account_path
+    end
+  end
 end
