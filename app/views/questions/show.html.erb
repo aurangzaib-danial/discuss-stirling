@@ -8,13 +8,7 @@
 
   <section id="answers" class="mt-5">
     <h5 class="fw-normal"><%= pluralize(@question.answers.count, 'Answer') %></h5>
-    <% @question.answers.each do |answer| %>
-      <article>
-        <p><%= answer.body %></p>
-        <p class="text-end"><%= user_info(answer.user) %> answered <%= created_at_in_words(answer) %></p>
-      </article>
-      <hr>
-    <% end %>
+    <%= render @question.answers %>
   </section>
 
   <section id="newAnswer" class="mt-5">

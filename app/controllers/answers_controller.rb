@@ -5,10 +5,7 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     @answer = @question.answers.build(answer_params)
     @answer.user = current_user
-
-    if @answer.save
-      redirect_to @question
-    end
+    @answer.save!
   end
 
   private
