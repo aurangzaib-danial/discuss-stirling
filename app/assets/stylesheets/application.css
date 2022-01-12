@@ -14,3 +14,6 @@
  *= require_self
  */
 
+.custom-container {
+  max-width: 900px;  
+}

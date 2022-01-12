@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   end
 
 
-  resources :questions, only: [:create]
+  resources :questions, except: :new
   get "/questions/ask", to: "questions#ask", as: "ask_question"
 end

@@ -1,6 +1,11 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!
 
+
+  def show
+    @question = Question.find(params[:id])
+  end
+
   def ask
     @question = Question.new
   end
@@ -9,7 +14,7 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.build(question_params)
 
     if @question.save
-      raise @question.inspect
+      redirect_to @question
     else
       render :ask, status: :unprocessable_entity
     end
