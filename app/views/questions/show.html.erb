@@ -9,9 +9,9 @@
   <section id="answers" class="mt-5">
     <h5 class="fw-normal"><%= pluralize(@question.answers.count, 'Answer') %></h5>
     <% @question.answers.each do |answer| %>
-      <article class="d-flex">
+      <article>
         <p><%= answer.body %></p>
-        <p>answered </p>
+        <p class="text-end"><%= user_info(answer.user) %> answered <%= created_at_in_words(answer) %></p>
       </article>
       <hr>
     <% end %>
