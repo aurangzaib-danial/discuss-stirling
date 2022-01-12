@@ -4,7 +4,6 @@ one:
   title: This is a test question
   user: regular
   subject: one
-  body: This is some sample body for this questions and lots of data.
 
 # two:
 #   title: MyString

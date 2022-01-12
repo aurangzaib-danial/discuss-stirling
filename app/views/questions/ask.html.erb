@@ -13,12 +13,12 @@
 
     <div class="mb-4">
       <%= form.label :title, class: "form-label" %>
-      <%= form.text_field :title, class: "form-control" %>
+      <%= field_with_errors form, :text_field, :title %>
     </div>
 
     <div class="mb-4">
       <%= form.label :body, class: "form-label" %>
-      <%= form.rich_text_area :body, class: "form-control"%>
+      <%= field_with_errors form, :rich_text_area, :body %>
     </div>
 
     <%= form.submit "Post your question", class: "btn btn-primary" %>
