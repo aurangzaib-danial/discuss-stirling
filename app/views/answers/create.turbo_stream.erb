@@ -1,1 +1,2 @@
 <%= turbo_stream.append "answers", @answer %>
+<%= turbo_stream.replace "answersCount", answers_count(@question.answers) %>
