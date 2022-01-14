@@ -5,7 +5,15 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     @answer = @question.answers.build(answer_params)
     @answer.user = current_user
-    @answer.save!
+
+    respond_to do |format|
+      if @answer.save
+        format.turbo_stream
+        format.html { redirect_to @question, notice: "Answer posted!" }
+      else
+        format.html { redirect_to @question, alert: "Body for answer is missing" }
+      end
+    end
   end
 
   private
