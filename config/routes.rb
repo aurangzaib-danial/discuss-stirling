@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   get "/questions/ask", to: "questions#ask", as: "ask_question"
   resources :questions, except: [:new, :show] do
-    resources :answers, only: :create
+    resources :answers, only: [:create, :edit]
   end
   get "questions/:id/:slug", to: "questions#show", as: "question_slug"
 end

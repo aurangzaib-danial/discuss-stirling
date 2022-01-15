@@ -1,7 +1,8 @@
 <article>
   <p><%= answer.body %></p>
   <p class="text-end">
-    <%= user_info(answer.user) %> answered <%= created_at_in_words(answer) %>
+    <%= link_to 'Edit', edit_question_answer_path(answer.question, answer), class: "text-muted text-decoration-none" %><br>
+    <%= user_info(answer.user) %> <span class="text-muted">answered <%= created_at_in_words(answer) %></span>
   </p>
 </article>
 <hr>

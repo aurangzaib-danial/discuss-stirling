@@ -1,9 +1,17 @@
 <main class="container custom-container mt-3">
   <section id="question">
     <h3><%= @question.title %></h3>
-    <p>Subject: <%= @question.subject.title %></p>
+    <p><%= @question.subject.title %></p>
+    <div class="text-end">
+      <span class="fs-6 me-2">0 Votes</span>
+      <button class="btn btn-primary">Vote</button>
+    </div>
     <hr>
     <p><%= @question.body %></p>
+    <div class="text-end mt-5">
+      <%= link_to 'Edit', edit_question_path(@question), class: "text-muted text-decoration-none" %><br>
+      <%= user_info(@question.user) %> <span class="text-muted"> asked <%= created_at_in_words(@question) %></span>
+    </div>
   </section>
 
   <section id="answers" class="mt-5">
