@@ -3,7 +3,7 @@
     <h3><%= @question.title %></h3>
     <p><%= @question.subject.title %></p>
     <div class="text-end">
-      <span class="fs-6 me-2">0 Votes</span>
+      <span class="fs-6 me-2"><%= @question.votes_count %> Votes</span>
       <% if policy(@question).vote? %> 
         <%= button_to "Vote", [@question, Vote.new], class: "btn btn-primary", form_class: "d-inline" %>
       <% end %>      
