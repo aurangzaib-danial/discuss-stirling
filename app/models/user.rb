@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, format: { with: /\A[^0-9`!@#\$%\^&*+_=]+\z/ }, unless: :private_account?
 
-  has_many :questions
+  has_many :questions, inverse_of: "questioner"
 
   def set_account!(account)
     update!(account: account + "_account", account_selected: true)

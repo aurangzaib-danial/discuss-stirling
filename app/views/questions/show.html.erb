@@ -10,7 +10,7 @@
     <p><%= @question.body %></p>
     <div class="text-end mt-5">
       <%= link_to 'Edit', edit_question_path(@question), class: "text-muted text-decoration-none" %><br>
-      <%= user_info(@question.user) %> <span class="text-muted"> asked <%= created_at_in_words(@question) %></span>
+      <%= user_info(@question.questioner) %> <span class="text-muted"> asked <%= created_at_in_words(@question) %></span>
     </div>
   </section>
 
