@@ -1,1 +1,8 @@
 <%= title "Discuss Stirling - Q/A Space for Stirling University Students", home: true %>
+
+
+<ul class="container custom-container mt-5">
+  <% Question.all.each do |question| %>
+    <li><h5 class="fw-normal"><%= link_to question.title %></h5></li>
+  <% end %>
+</ul>
