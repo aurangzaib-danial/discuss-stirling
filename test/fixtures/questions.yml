@@ -2,7 +2,7 @@
 
 one:
   title: This is a question with a long title.
-  user: one
+  questioner: one
   subject: one
 
 # two:
