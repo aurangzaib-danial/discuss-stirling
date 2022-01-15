@@ -76,3 +76,5 @@ gem "omniauth-rails_csrf_protection"
 
 
 gem "devise", "~> 4.8"
+
+gem "pundit", "~> 2.1"
