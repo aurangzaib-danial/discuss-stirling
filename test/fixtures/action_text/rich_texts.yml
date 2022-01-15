@@ -1,4 +1,4 @@
 # one:
-#   record: name_of_fixture (ClassOfFixture)
-#   name: content
-#   body: <p>In a <i>million</i> stars!</p>
+#   record: one (Question)
+#   name: body
+#   body: This is very a long body. With lots of text in this to make validations pass/

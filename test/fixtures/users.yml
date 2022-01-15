@@ -1,13 +1,12 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-regular:
+one:
   name: Sunny
   email: aurangzaib.danial@gmail.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
 
 
-# two:
-#   name: MyString
-#   email: MyString
-#   password_digest: MyString
-#   private: false
+two:
+  name: Ali
+  email: ali@gmail.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
