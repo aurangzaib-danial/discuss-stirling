@@ -8,6 +8,10 @@ class QuestionPolicy < ApplicationPolicy
     user == question.questioner
   end
 
+  def edit?
+    update?
+  end
+
   class Scope < Scope
     def resolve
       scope.all

@@ -3,6 +3,10 @@ class AnswerPolicy < ApplicationPolicy
     user == record.user
   end
 
+  def edit?
+    update?
+  end
+
   class Scope < Scope
     def resolve
       scope.all

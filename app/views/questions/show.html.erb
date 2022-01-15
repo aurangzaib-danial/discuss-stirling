@@ -4,12 +4,18 @@
     <p><%= @question.subject.title %></p>
     <div class="text-end">
       <span class="fs-6 me-2">0 Votes</span>
-      <button class="btn btn-primary">Vote</button>
+      <% if policy(@question).vote? %>
+        <button class="btn btn-primary">Vote</button>  
+      <% end %>      
     </div>
     <hr>
     <p><%= @question.body %></p>
     <div class="text-end mt-5">
-      <%= link_to 'Edit', edit_question_path(@question), class: "text-muted text-decoration-none" %><br>
+
+      <% if policy(@question).edit? %>
+        <%= link_to 'Edit', edit_question_path(@question), class: "text-muted text-decoration-none" %><br>
+      <% end %>
+      
       <%= user_info(@question.questioner) %> <span class="text-muted"> asked <%= created_at_in_words(@question) %></span>
     </div>
   </section>
