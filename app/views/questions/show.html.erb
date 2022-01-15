@@ -4,8 +4,8 @@
     <p><%= @question.subject.title %></p>
     <div class="text-end">
       <span class="fs-6 me-2">0 Votes</span>
-      <% if policy(@question).vote? %>
-        <button class="btn btn-primary">Vote</button>  
+      <% if policy(@question).vote? %> 
+        <%= button_to "Vote", [@question, Vote.new], class: "btn btn-primary", form_class: "d-inline" %>
       <% end %>      
     </div>
     <hr>
