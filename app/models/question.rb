@@ -6,4 +6,8 @@ class Question < ApplicationRecord
 
   validates :title, presence: true, length: { minimum: 15, maximum: 150 }
   include BodyValidations
+
+  def slug
+    title.parameterize
+  end
 end

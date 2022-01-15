@@ -9,9 +9,9 @@ class AnswersController < ApplicationController
     respond_to do |format|
       if @answer.save
         format.turbo_stream
-        format.html { redirect_to @question, notice: "Answer posted!" }
+        format.html { redirect_to slug_path(@question), notice: "Answer posted!" }
       else
-        format.html { redirect_to @question, alert: "Body for answer is missing" }
+        format.html { redirect_to slug_path(@question), alert: "Body for answer is missing" }
       end
     end
   end

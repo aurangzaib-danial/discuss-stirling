@@ -3,6 +3,6 @@
 
 <ul class="container custom-container mt-5">
   <% Question.all.each do |question| %>
-    <li><h5 class="fw-normal"><%= link_to question.title %></h5></li>
+    <li><h5 class="fw-normal"><%= link_to question.title, slug_path(question) %></h5></li>
   <% end %>
 </ul>

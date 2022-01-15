@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.build(question_params)
 
     if @question.save
-      redirect_to @question
+      redirect_to slug_path(@question)
     else
       render :ask, status: :unprocessable_entity
     end
