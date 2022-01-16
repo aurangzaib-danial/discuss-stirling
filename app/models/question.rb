@@ -13,6 +13,7 @@ class Question < ApplicationRecord
   end
 
   def voted?(user)
+    return false if user.nil?
     votes.exists?(user: user)
   end
 

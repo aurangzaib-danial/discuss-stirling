@@ -1,11 +1,11 @@
 class QuestionPolicy < ApplicationPolicy
 
   def vote?
-    true unless user == question.questioner
+    true unless user == question.questioner if user
   end
 
   def update?
-    user == question.questioner
+    user == question.questioner if user
   end
 
   def edit?

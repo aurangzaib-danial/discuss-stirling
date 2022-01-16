@@ -2,5 +2,8 @@
   <span class="fs-6 me-2"><%= question.votes_count %> Votes</span>
   <% if policy(question).vote? %> 
     <%= vote_button(question) %>
-  <% end %>      
+  <% end %>
+  <%# Display a vote button for guest users so they will be redirected to login when they press it %>
+  <%# Because above vote_button will not be displayed for guest users %>
+  <%= vote_button(question) if current_user.nil? %>      
 </div>

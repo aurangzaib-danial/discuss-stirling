@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :show
   before_action :set_question, only: [:show, :edit, :update]
   after_action :verify_authorized, only: [:edit, :update] 
 
