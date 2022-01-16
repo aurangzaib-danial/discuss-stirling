@@ -1,7 +1,7 @@
 class AnswersController < ApplicationController
   include ActionView::RecordIdentifier
   before_action :authenticate_user!
-  before_action :set_answer, only: [:edit, :update]
+  before_action :set_answer, only: [:edit, :update, :destroy]
   after_action :verify_authorized, except: :create
 
   def create
@@ -22,6 +22,11 @@ class AnswersController < ApplicationController
   def update
     @answer.update!(answer_params)
     redirect_to slug_path(@question, anchor: dom_id(@answer))
+  end
+
+  def destroy
+    @answer.destroy
+    redirect_to slug_path(@question), notice: "Answer deleted"
   end
 
   private

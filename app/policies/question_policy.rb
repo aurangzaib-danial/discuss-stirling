@@ -13,7 +13,7 @@ class QuestionPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user == question.questioner
+    update?
   end
 
   class Scope < Scope
