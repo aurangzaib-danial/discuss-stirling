@@ -7,6 +7,9 @@ class QuestionsController < ApplicationController
     @question = Question.new
   end
 
+  def show
+  end
+
   def create
     @question = current_user.questions.build(question_params)
 

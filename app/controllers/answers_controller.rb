@@ -1,5 +1,7 @@
 class AnswersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_answer, only: [:edit, :update]
+  after_action :verify_authorized, except: :create
 
   def create
     @question = Question.find(params[:question_id])
@@ -16,9 +18,20 @@ class AnswersController < ApplicationController
     end
   end
 
+  def update
+    @answer.update!(answer_params)
+    redirect_to slug_path(@question)
+  end
+
   private
 
   def answer_params
    params.require(:answer).permit(:body)
+  end
+
+  def set_answer
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.find(params[:id])
+    authorize @answer
   end
 end

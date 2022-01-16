@@ -1,0 +1,7 @@
+<%= form_with model: [question, answer], data: {controller: "new-question-form", action: "new-question-form#validations turbo:submit-end->new-question-form#reset"} do |form| %>
+  <div class="mt-3 mb-4">
+    <%= form.rich_text_area :body, class: "form-control", data: {new_question_form_target: "body"} %>
+    <div class="invalid-feedback" data-new-question-form-target="errorMessage"></div>
+  </div>
+  <%= form.submit button_text, class: "btn btn-primary" %>
+<% end %>
