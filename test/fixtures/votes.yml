@@ -1,9 +1,6 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  question: one
-  user: one
+# one:
+#   question: one
+#   user: two
 
-two:
-  question: two
-  user: two

@@ -11,4 +11,12 @@ class Question < ApplicationRecord
   def slug
     title.parameterize
   end
+
+  def voted?(user)
+    votes.exists?(user: user)
+  end
+
+  def user_vote(user)
+    votes.find_by(user: user)
+  end
 end

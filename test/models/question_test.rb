@@ -15,4 +15,11 @@ class QuestionTest < ActiveSupport::TestCase
     question.valid?
     assert question.errors[:body].present?
   end
+
+  test "voted? informs wether a user has already voted" do
+    question = questions(:one)
+    user = users(:two)
+    question.votes.create!(user: user)
+    assert question.voted?(user)
+  end
 end

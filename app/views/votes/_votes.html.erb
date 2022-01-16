@@ -1,0 +1,6 @@
+<div class="text-end" id="votes"> 
+  <span class="fs-6 me-2"><%= question.votes_count %> Votes</span>
+  <% if policy(question).vote? %> 
+    <%= vote_button(question) %>
+  <% end %>      
+</div>
