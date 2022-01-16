@@ -1,4 +1,4 @@
-<article>
+<%= content_tag_for :article, answer do %>
   <p><%= answer.body %></p>
   <p class="text-end">
     <% if policy(answer).edit? %>
@@ -6,5 +6,5 @@
     <% end %>
     <%= user_info(answer.user) %> <span class="text-muted">answered <%= created_at_in_words(answer) %></span>
   </p>
-</article>
+<% end %>
 <hr>

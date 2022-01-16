@@ -1,4 +1,5 @@
 class AnswersController < ApplicationController
+  include ActionView::RecordIdentifier
   before_action :authenticate_user!
   before_action :set_answer, only: [:edit, :update]
   after_action :verify_authorized, except: :create
@@ -20,7 +21,7 @@ class AnswersController < ApplicationController
 
   def update
     @answer.update!(answer_params)
-    redirect_to slug_path(@question)
+    redirect_to slug_path(@question, anchor: dom_id(@answer))
   end
 
   private
