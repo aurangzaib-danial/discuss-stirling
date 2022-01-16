@@ -12,6 +12,10 @@ class QuestionPolicy < ApplicationPolicy
     update?
   end
 
+  def destroy?
+    user == question.questioner
+  end
+
   class Scope < Scope
     def resolve
       scope.all

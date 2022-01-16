@@ -2,8 +2,8 @@ class Question < ApplicationRecord
   belongs_to :questioner, class_name: "User", foreign_key: "user_id"
   belongs_to :subject
   has_rich_text :body
-  has_many :answers
-  has_many :votes
+  has_many :answers, dependent: :delete_all
+  has_many :votes, dependent: :delete_all
 
   validates :title, presence: true, length: { minimum: 15, maximum: 150 }
   include BodyValidations

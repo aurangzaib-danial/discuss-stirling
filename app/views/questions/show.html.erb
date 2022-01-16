@@ -20,8 +20,13 @@
     <%= render @question.answers %>
   </section>
 
-  <section id="newAnswer" class="mt-5">
+  <% if user_signed_in? %>
+    <section id="newAnswer" class="mt-5">
     <h5 class="fw-normal">Your Answer</h5>
-    <%= render "answers/form", question: @question, answer: @question.answers.build, button_text: "Post your answer" %>
-  </section>
+      <%= render "answers/form", question: @question, answer: @question.answers.build, button_text: "Post your answer" %>
+    </section>
+  <% else %>
+    <p class="mt-5">Please <%= link_to 'Log in', new_user_session_path, class: "text-decoration-none" %> to submit an answer</p>
+  <% end %>
+
 </main>

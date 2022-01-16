@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 User.create(email: "aurangzaib.danial@gmail.com", name: "Aurangzaib Khan", password: "123456", account: "public_account", account_selected: true)
+User.create(email: "ali@gmail.com", name: "Ali", password: "123456", account: "public_account", account_selected: true)
 
 subject_titles = [
   "Accounting and Finance",
@@ -39,3 +40,12 @@ subject_titles = [
 ]
 
 subject_titles.each {|subject_title| Subject.create!(title: subject_title)}
+
+10.times do |index|
+  q = Question.new
+  q.title = "This is a dummy title for this question. The question number is #{index + 1}"
+  q.questioner = User.first
+  q.body = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+  q.subject = Subject.first
+  q.save!
+end
