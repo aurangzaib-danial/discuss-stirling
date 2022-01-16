@@ -5,23 +5,5 @@
 
   <h3>Ask a question</h3>
 
-  <%= form_with model: @question, class: "mt-4" do |form| %>
-
-    <div class="mb-3">
-      <%= form.collection_select :subject_id, Subject.order(:title), :id, :title, {prompt: "Select subject"}, class: "form-select", required: true  %>
-    </div>
-
-    <div class="mb-4">
-      <%= form.label :title, class: "form-label" %>
-      <%= field_with_errors form, :text_field, :title %>
-    </div>
-
-    <div class="mb-4">
-      <%= form.label :body, class: "form-label" %>
-      <%= field_with_errors form, :rich_text_area, :body %>
-    </div>
-
-    <%= form.submit "Post your question", class: "btn btn-primary" %>
-  <% end %>
-
+  <%= render "form", question: @question, button_text: "Post your question" %>
 </main>

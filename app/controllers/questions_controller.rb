@@ -1,10 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!
-
-
-  def show
-    @question = Question.find(params[:id])
-  end
+  before_action :set_question, only: [:show, :edit, :update]
+  after_action :verify_authorized, only: [:edit, :update] 
 
   def ask
     @question = Question.new
@@ -20,8 +17,24 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def edit
+    authorize @question
+  end
+
+  def update
+    authorize @question
+    if @question.update(question_params)
+      redirect_to slug_path(@question)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
   def question_params
     params.require(:question).permit(:subject_id, :title, :body)
+  end
+  def set_question
+    @question = Question.find(params[:id])
   end
 end
