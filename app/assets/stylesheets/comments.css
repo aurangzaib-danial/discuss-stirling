@@ -1,0 +1,14 @@
+.comments ul {
+  padding:  0;
+  --border-properties: 1px solid rgba(0,0,0,.125);
+}
+
+.comments ul li {
+  list-style: none;
+  padding: 0.5rem;
+  border-bottom: var(--border-properties);
+}
+
+.comments ul:first-child{
+  border-top: var(--border-properties);
+}
