@@ -12,3 +12,7 @@
 .comments ul:first-child{
   border-top: var(--border-properties);
 }
+
+.comments form {
+  display: none;
+}
