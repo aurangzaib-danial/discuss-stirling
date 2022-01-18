@@ -1,20 +1,29 @@
-<li>
-  <% if policy(comment).edit? %>  
+<%= content_tag_for :li, comment do %>
 
-    <div class="editComment d-none">
-      <%= form_with model: [commentable, comment], class: "d-inline" do |form| %>
-        <div class="mb-2">
-          <%= form.text_area :body, class: "form-control", required: true %>
-        </div>
+  <% if policy(comment).edit? %>
+    <div data-controller="comments--edit">
+      <a href="#" class="pe-2 text-muted" data-comments--edit-target="pencil" data-action="comments--edit#edit"><i class="bi bi-pencil"></i></a>
 
-        <%= form.button(class: "btn btn-primary") { button_content "Update" } %>
-      <% end %>
+      <div class="d-none" data-comments--edit-target="form">
+        <%= form_with model: [commentable, comment], class: "d-inline" do |form| %>
+          <div class="mb-2">
+            <%= form.text_area :body, class: "form-control", required: true, data: {comments__edit_target: "body"} %>
+          </div>
 
-      <%= button_to("Delete", method: :delete, class: "btn btn-danger", form_class: "d-inline") { button_content "Delete" } %>
+          <%= form.button(class: "btn btn-primary me-2") { button_content "Update" } %>
+        <% end %>
+
+        <%= button_to([commentable, comment], method: :delete, class: "btn btn-danger", form_class: "d-inline", form: { data: {turbo_confirm: "Are you sure you want to delete this comment?"}}) { button_content "Delete"} %>
+      </div>
+
+      <span data-comments--edit-target="content">
+        <%= comment.body %> - <%= comment.commentator.first_name %> 
+        <span class="text-muted"><%= created_at_in_words(comment) %></span>
+      </span>
     </div>
-
+  <% else %>
+    <%= comment.body %> - <%= comment.commentator.first_name %> 
+    <span class="text-muted"><%= created_at_in_words(comment) %></span>
   <% end %>
 
-  <%= comment.body %> - <%= comment.commentator.first_name %> 
-  <span class="text-muted"><%= created_at_in_words(comment) %></span>
-</li>  
+<% end %>
