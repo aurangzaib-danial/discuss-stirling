@@ -14,21 +14,7 @@
       <%= user_info(@question.questioner) %> <span class="text-muted"> asked <%= created_at_in_words(@question) %></span>
     </div>
 
-    <section class="comments mt-5" data-controller="comments">
-      <ul>
-        <li>This is a comment 1 - Aurangzaib <span class="text-muted"> about 3 hours ago</li>
-        <li>This is a comment 2 - Ali <span class="text-muted"> about 2 hours ago</li>
-      </ul>
-      
-      <%= form_with model: [@question, Comment.new], data: {comments_target: "form", action: "turbo:submit-end->comments#reset"} do |form| %>
-        <div class="mb-3">
-          <%= form.text_area :body, class: "form-control", required: true, data: {comments_target: "body"} %>
-        </div>
-        <%= form.submit "Comment", class: "btn btn-primary" %>
-      <% end %>
-
-      <a href="#" class="text-muted text-decoration-none" data-action="comments#newComment" data-comments-target="addComment">Add a comment</a>
-    </section>
+    <%= render "comments/comments", commentable: @question %>
   </section>
 
   <section id="answers" class="mt-5">

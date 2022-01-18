@@ -8,10 +8,11 @@ export default class extends Controller {
     event.preventDefault()
     this.addCommentTarget.style.display = "none"
     this.formTarget.style.display = "initial"
+    this.bodyTarget.focus()
   }
 
   reset() {
-    this.formTarget.clear()
+    this.formTarget.reset()
     this.formTarget.style.display = "none"
     this.addCommentTarget.style.display = "initial"
   }

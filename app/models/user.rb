@@ -9,7 +9,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true, format: { with: /\A[^0-9`!@#\$%\^&*+_=]+\z/ }, unless: :private_account?
 
-  has_many :questions, inverse_of: "questioner"
+  has_many :questions, inverse_of: "questioner", dependent: :delete_all
+  has_many :comments, inverse_of: "commentator", dependent: :delete_all
 
   def set_account!(account)
     update!(account: account + "_account", account_selected: true)
@@ -25,5 +26,9 @@ class User < ApplicationRecord
 
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self, *args).deliver_later
+  end
+
+  def first_name
+    name.split.first
   end
 end

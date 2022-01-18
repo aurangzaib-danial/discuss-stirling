@@ -4,7 +4,7 @@ class Question < ApplicationRecord
   has_rich_text :body
   has_many :answers, dependent: :delete_all
   has_many :votes, dependent: :delete_all
-  has_many :comments, as: :commentable
+  has_many :comments, as: :commentable, dependent: :delete_all
 
   validates :title, presence: true, length: { minimum: 15, maximum: 150 }
   include BodyValidations

@@ -22,7 +22,9 @@ Rails.application.routes.draw do
   resources :questions, except: [:new, :show] do
     resources :answers, only: [:create, :edit, :update, :destroy]
     resources :votes, only: [:create, :destroy]
-    resources :comments
+    resources :comments, module: :questions
   end
+
+
   get "questions/:id/:slug", to: "questions#show", as: "question_slug"
 end
