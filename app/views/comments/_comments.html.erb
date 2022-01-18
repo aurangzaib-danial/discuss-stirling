@@ -1,15 +1,19 @@
 <section class="comments mt-5" data-controller="comments">
-  <ul id="comments">
+
+  <%= content_tag :ul, id: "#{dom_id(commentable)}_comments" do %>
     <% commentable.comments.each do |comment| %>
       <%= render comment %>
     <% end %>
-  </ul>
+  <% end %>
   
   <%= form_with model: [commentable, Comment.new], data: {comments_target: "form", action: "turbo:submit-end->comments#reset"} do |form| %>
     <div class="mb-3">
       <%= form.text_area :body, class: "form-control", required: true, data: {comments_target: "body"}, placeholder: "Add a comment" %>
     </div>
-    <%= form.submit "Comment", class: "btn btn-primary" %>
+    <%= form.button class: "btn btn-primary" do %>
+      <span class="show-when-enabled">Comment</span>
+      <span class="show-when-disabled">Processing...</span>
+    <% end %>
   <% end %>
 
   <a href="#" class="text-muted text-decoration-none" data-action="comments#newComment" data-comments-target="addComment">Add a comment</a>

@@ -9,7 +9,7 @@
   border-bottom: var(--border-properties);
 }
 
-.comments ul:first-child{
+.comments ul li:first-of-type {
   border-top: var(--border-properties);
 }
 

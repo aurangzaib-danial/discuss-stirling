@@ -17,3 +17,19 @@
 .custom-container {
   max-width: 900px;  
 }
+
+button .show-when-enabled {
+  display: initial;
+}
+
+button .show-when-disabled {
+  display: none;
+}
+
+button:disabled .show-when-enabled {
+  display: none;
+}
+
+button:disabled .show-when-disabled {
+  display: initial;
+}

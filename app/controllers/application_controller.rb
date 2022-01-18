@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include ActionView::RecordIdentifier
   before_action :ask_user_to_select_account, if: :user_signed_in?
 
   helper_method :slug_path
