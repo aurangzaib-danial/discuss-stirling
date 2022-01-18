@@ -10,10 +10,7 @@
     <div class="mb-3">
       <%= form.text_area :body, class: "form-control", required: true, data: {comments_target: "body"}, placeholder: "Add a comment" %>
     </div>
-    <%= form.button class: "btn btn-primary" do %>
-      <span class="show-when-enabled">Comment</span>
-      <span class="show-when-disabled">Processing...</span>
-    <% end %>
+    <%= submit_button(form, "Comment") %>
   <% end %>
 
   <a href="#" class="text-muted text-decoration-none" data-action="comments#newComment" data-comments-target="addComment">Add a comment</a>

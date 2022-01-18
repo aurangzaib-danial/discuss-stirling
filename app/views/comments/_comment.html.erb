@@ -1,2 +1,5 @@
-<li><%= comment.body %> - <%= comment.commentator.first_name %> <span class="text-muted"><%= created_at_in_words(comment) %></span>
-</li>
+<li>
+  <a href="#" class="px-3 text-muted"><i class="bi bi-pencil"></i></a>
+  <%= comment.body %> - <%= comment.commentator.first_name %> 
+  <span class="text-muted"><%= created_at_in_words(comment) %></span>
+</li> 

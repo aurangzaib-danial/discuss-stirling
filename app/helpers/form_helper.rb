@@ -7,4 +7,15 @@ module FormHelper
       form.send(field_type, attribute, options.merge(class: "form-control", required: true))
     end
   end
+
+
+  def submit_button(form, text)
+    form.button class: "btn btn-primary" do
+      html = <<-HTML
+        <span class="show-when-enabled">#{text}</span>
+        <span class="show-when-disabled">Processing...</span>
+      HTML
+      html.html_safe
+    end
+  end
 end
