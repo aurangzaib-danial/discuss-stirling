@@ -1,5 +1,7 @@
 <li>
-  <a href="#" class="px-3 text-muted"><i class="bi bi-pencil"></i></a>
+  <% if policy(comment).edit? %>
+    <a href="#" class="pe-2 text-muted"><i class="bi bi-pencil"></i></a>  
+  <% end %>
   <%= comment.body %> - <%= comment.commentator.first_name %> 
   <span class="text-muted"><%= created_at_in_words(comment) %></span>
 </li> 

@@ -1,6 +1,6 @@
 class AnswerPolicy < ApplicationPolicy
   def update?
-    user == record.user if user
+    user == record.user
   end
 
   def edit?

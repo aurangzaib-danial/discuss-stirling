@@ -1,7 +1,7 @@
 <section class="comments mt-5" data-controller="comments">
 
   <%= content_tag :ul, id: "#{dom_id(commentable)}_comments" do %>
-    <% commentable.comments.each do |comment| %>
+    <% commentable.comments.order(:created_at).each do |comment| %>
       <%= render comment %>
     <% end %>
   <% end %>

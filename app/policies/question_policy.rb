@@ -1,11 +1,11 @@
 class QuestionPolicy < ApplicationPolicy
 
   def vote?
-    true unless user == question.questioner if user
+    true unless user == record.questioner
   end
 
   def update?
-    user == question.questioner if user
+    user == record.questioner
   end
 
   def edit?
@@ -20,10 +20,5 @@ class QuestionPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
-  end
-
-  private
-  def question
-    record
   end
 end
