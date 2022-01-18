@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :questions, except: [:new, :show] do
     resources :answers, only: [:create, :edit, :update, :destroy]
     resources :votes, only: [:create, :destroy]
-    resources :comments, module: :questions
+    resources :comments, only: [:create, :update, :destroy], module: :questions
   end
 
 

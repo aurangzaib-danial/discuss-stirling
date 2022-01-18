@@ -1,7 +1,20 @@
 <li>
-  <% if policy(comment).edit? %>
-    <a href="#" class="pe-2 text-muted"><i class="bi bi-pencil"></i></a>  
+  <% if policy(comment).edit? %>  
+
+    <div class="editComment d-none">
+      <%= form_with model: [commentable, comment], class: "d-inline" do |form| %>
+        <div class="mb-2">
+          <%= form.text_area :body, class: "form-control", required: true %>
+        </div>
+
+        <%= form.button(class: "btn btn-primary") { button_content "Update" } %>
+      <% end %>
+
+      <%= button_to("Delete", method: :delete, class: "btn btn-danger", form_class: "d-inline") { button_content "Delete" } %>
+    </div>
+
   <% end %>
+
   <%= comment.body %> - <%= comment.commentator.first_name %> 
   <span class="text-muted"><%= created_at_in_words(comment) %></span>
-</li> 
+</li>  

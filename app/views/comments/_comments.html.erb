@@ -2,15 +2,15 @@
 
   <%= content_tag :ul, id: "#{dom_id(commentable)}_comments" do %>
     <% commentable.comments.order(:created_at).each do |comment| %>
-      <%= render comment %>
+      <%= render comment, commentable: commentable %>
     <% end %>
   <% end %>
   
-  <%= form_with model: [commentable, Comment.new], data: {comments_target: "form", action: "turbo:submit-end->comments#reset"} do |form| %>
+  <%= form_with model: [commentable, Comment.new], data: {comments_target: "form", action: "turbo:submit-end->comments#reset"}, class: "d-none" do |form| %>
     <div class="mb-3">
       <%= form.text_area :body, class: "form-control", required: true, data: {comments_target: "body"}, placeholder: "Add a comment" %>
     </div>
-    <%= submit_button(form, "Comment") %>
+    <%= form.button(class: "btn btn-primary") { button_content "Comment"} %>
   <% end %>
 
   <a href="#" class="text-muted text-decoration-none" data-action="comments#newComment" data-comments-target="addComment">Add a comment</a>

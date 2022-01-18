@@ -12,7 +12,3 @@
 .comments ul li:first-of-type {
   border-top: var(--border-properties);
 }
-
-.comments form {
-  display: none;
-}

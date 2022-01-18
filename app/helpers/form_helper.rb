@@ -9,13 +9,11 @@ module FormHelper
   end
 
 
-  def submit_button(form, text)
-    form.button class: "btn btn-primary" do
-      html = <<-HTML
-        <span class="show-when-enabled">#{text}</span>
-        <span class="show-when-disabled">Processing...</span>
-      HTML
-      html.html_safe
-    end
+  def button_content(text)
+    html = <<-HTML
+      <span class="show-when-enabled">#{text}</span>
+      <span class="show-when-disabled">Processing...</span>
+    HTML
+    html.html_safe
   end
 end

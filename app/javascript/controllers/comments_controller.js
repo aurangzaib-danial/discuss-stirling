@@ -6,14 +6,14 @@ export default class extends Controller {
 
   newComment(event) {
     event.preventDefault()
-    this.addCommentTarget.style.display = "none"
-    this.formTarget.style.display = "initial"
+    this.addCommentTarget.classList.add("d-none")
+    this.formTarget.classList.remove("d-none")
     this.bodyTarget.focus()
   }
 
   reset() {
     this.formTarget.reset()
-    this.formTarget.style.display = "none"
-    this.addCommentTarget.style.display = "initial"
+    this.formTarget.classList.add("d-none")
+    this.addCommentTarget.classList.remove("d-none")
   }
 }
