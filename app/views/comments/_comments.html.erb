@@ -1,4 +1,4 @@
-<section class="comments mt-5">
+<div class="comments mt-5">
 
   <%= content_tag :ul, id: "#{dom_id(commentable)}_comments" do %>
     <% commentable.comments.order(:created_at).each do |comment| %>
@@ -15,4 +15,4 @@
 
     <a href="#" class="text-muted text-decoration-none" data-action="comments--new#newComment" data-comments--new-target="addComment">Add a comment</a>
   </div>
-</section>
+</div>

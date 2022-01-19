@@ -7,4 +7,5 @@
     <%= user_info(answer.user) %> <span class="text-muted">answered <%= created_at_in_words(answer) %></span>
   </p>
 <% end %>
+<%= render "comments/comments", commentable: answer %>
 <hr>

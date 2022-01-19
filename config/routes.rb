@@ -25,6 +25,10 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :update, :destroy], module: :questions
   end
 
+  resources :answers, only: [] do
+    resources :comments, only: [:create, :update, :destroy], module: :answers
+  end
+
 
   get "questions/:id/:slug", to: "questions#show", as: "question_slug"
 end

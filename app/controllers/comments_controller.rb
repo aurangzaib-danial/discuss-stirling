@@ -9,7 +9,6 @@ class CommentsController < ApplicationController
     if @comment.save
       respond_to do |format|
         format.turbo_stream { render turbo_stream: turbo_stream.append("#{dom_id(@commentable)}_comments", partial: "comments/comment", locals: {commentable: @commentable, comment: @comment}) }
-        format.html { redirect_to @commentable, notice: "Your comment was successfully posted." }
       end
     end
   end
@@ -20,7 +19,6 @@ class CommentsController < ApplicationController
     if @comment.update(comment_params)
       respond_to do |format|
         format.turbo_stream { render turbo_stream: turbo_stream.replace(dom_id(@comment), partial: "comments/comment", locals: {commentable: @commentable, comment: @comment}) }
-        format.html { redirect_to @commentable, notice: "Your comment was successfully updated." }
       end
     end
   end
@@ -31,7 +29,6 @@ class CommentsController < ApplicationController
     @comment.destroy
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.remove(dom_id(@comment)) }
-      format.html { redirect_to @commentable, notice: "Your comment was successfully delete." }
     end
   end
 
