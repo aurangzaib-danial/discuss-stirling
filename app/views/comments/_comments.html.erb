@@ -5,14 +5,19 @@
       <%= render comment, commentable: commentable %>
     <% end %>
   <% end %>
-  <div data-controller="comments--new">
-    <%= form_with model: [commentable, Comment.new], data: {comments__new_target: "form", action: "turbo:submit-end->comments--new#reset"}, class: "d-none" do |form| %>
-      <div class="mb-3">
-        <%= form.text_area :body, class: "form-control", required: true, data: {comments__new_target: "body"}, placeholder: "Add a comment" %>
-      </div>
-      <%= form.button(class: "btn btn-primary") { button_content "Comment"} %>
-    <% end %>
 
-    <a href="#" class="text-muted text-decoration-none" data-action="comments--new#newComment" data-comments--new-target="addComment">Add a comment</a>
-  </div>
+  <% if user_signed_in? %>
+    <div data-controller="comments--new">
+      <%= form_with model: [commentable, Comment.new], data: {comments__new_target: "form", action: "turbo:submit-end->comments--new#reset"}, class: "d-none" do |form| %>
+        <div class="mb-3">
+          <%= form.text_area :body, class: "form-control", required: true, data: {comments__new_target: "body"}, placeholder: "Add a comment" %>
+        </div>
+        <%= form.button(class: "btn btn-primary") { button_content "Comment"} %>
+      <% end %>
+
+      <a href="#" class="text-muted text-decoration-none" data-action="comments--new#newComment" data-comments--new-target="addComment">Add a comment</a>
+    </div>
+  <% else %>
+    <p>Please <%= link_to 'Log in', new_user_session_path, class: "text-decoration-none" %> to comment</p>
+  <% end %>
 </div>

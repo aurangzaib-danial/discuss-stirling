@@ -1,7 +1,7 @@
 class QuestionPolicy < ApplicationPolicy
 
   def vote?
-    true unless user == record.questioner
+    user.present? && user != record.questioner
   end
 
   def update?
