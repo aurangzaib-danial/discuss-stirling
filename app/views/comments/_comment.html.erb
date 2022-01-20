@@ -17,12 +17,12 @@
       </div>
 
       <span data-comments--edit-target="content">
-        <%= comment.body %> - <%= comment.commentator.first_name %> 
+        <%= comment.body %> - <%= comment.commentator.private_account? ? "Private User" : comment.commentator.first_name %> 
         <span class="text-muted"><%= created_at_in_words(comment) %></span>
       </span>
     </div>
   <% else %>
-    <%= comment.body %> - <%= comment.commentator.first_name %> 
+    <%= comment.body %> - <%= comment.commentator.private_account? ? "Private User" : comment.commentator.first_name %> 
     <span class="text-muted"><%= created_at_in_words(comment) %></span>
   <% end %>
 
