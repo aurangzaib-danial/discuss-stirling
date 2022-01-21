@@ -29,7 +29,10 @@ Rails.application.routes.draw do
   end
 
   resources :answers, only: [] do
-    resources :comments, only: [:create, :update, :destroy], module: :answers
+    scope module: :answers do
+      resources :comments, only: [:create, :update, :destroy]
+      resources :follows, only: [:create, :destroy]
+    end
   end
 
 

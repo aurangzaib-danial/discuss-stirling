@@ -1,11 +1,19 @@
 <%= content_tag_for :article, answer do %>
-  <p><%= answer.body %></p>
-  <p class="text-end">
+  
+  <div class="mt-3">
+    <%= answer.body %>
+  </div>
+
+  <div class="text-end mt-5">
     <% if policy(answer).edit? %>
-      <%= link_to 'Edit', edit_question_answer_path(answer.question, answer), class: "text-muted text-decoration-none" %><br>  
+      <%= link_to 'Edit', edit_question_answer_path(answer.question, answer), class: "text-muted text-decoration-none me-2" %>
     <% end %>
+    <%= follow_button answer %><br>
+
     <%= user_info(answer.user) %> <span class="text-muted">answered <%= created_at_in_words(answer) %></span>
-  </p>
+  </div>
+
+
 <% end %>
 <%= render "comments/comments", commentable: answer %>
 <hr>

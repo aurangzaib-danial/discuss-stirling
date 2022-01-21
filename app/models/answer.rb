@@ -7,4 +7,8 @@ class Answer < ApplicationRecord
   has_many :followers, -> { distinct }, through: :follows, source: :user
 
   include BodyValidations
+
+  def following?(user)
+    follows.exists?(user: user)
+  end
 end

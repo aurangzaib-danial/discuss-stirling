@@ -4,7 +4,11 @@
     <p><%= @question.subject.title %></p>
     <%= render "votes/votes", question: @question %>
     <hr>
-    <p><%= @question.body %></p>
+    
+    <div>
+      <%= @question.body %>
+    </div>
+
     <div class="text-end mt-5">
 
       <% if policy(@question).edit? %>
