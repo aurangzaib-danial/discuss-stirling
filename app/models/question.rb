@@ -23,4 +23,8 @@ class Question < ApplicationRecord
   def user_vote(user)
     votes.find_by(user: user)
   end
+
+  def follow!(user)
+    follows.create(user: user)
+  end
 end

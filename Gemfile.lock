@@ -96,6 +96,8 @@ GEM
       warden (~> 1.2.3)
     digest (3.1.0)
     erubi (1.10.0)
+    faker (2.19.0)
+      i18n (>= 1.6, < 2)
     faraday (1.8.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
@@ -286,6 +288,7 @@ DEPENDENCIES
   capybara
   debug
   devise (~> 4.8)
+  faker
   image_processing (~> 1.2)
   importmap-rails
   jbuilder

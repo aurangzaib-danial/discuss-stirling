@@ -4,6 +4,8 @@ one:
   name: Sunny
   email: aurangzaib.danial@gmail.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  account: public_account
+  account_selected: true
 
 
 two:
