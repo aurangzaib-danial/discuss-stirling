@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 2022_01_20_235132) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["followable_type", "followable_id", "user_id"], name: "unique_follower", unique: true
     t.index ["followable_type", "followable_id"], name: "index_followers_on_followable"
     t.index ["user_id"], name: "index_followers_on_user_id"
   end
