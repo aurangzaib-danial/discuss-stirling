@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_20_235132) do
+ActiveRecord::Schema.define(version: 2022_01_21_162457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,20 @@ ActiveRecord::Schema.define(version: 2022_01_20_235132) do
     t.index ["user_id"], name: "index_follows_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "recipient_id", null: false
+    t.bigint "actor_id", null: false
+    t.datetime "read_at", precision: 6
+    t.string "action"
+    t.string "notifiable_type", null: false
+    t.bigint "notifiable_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["actor_id"], name: "index_notifications_on_actor_id"
+    t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable"
+    t.index ["recipient_id"], name: "index_notifications_on_recipient_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.string "title"
     t.bigint "user_id", null: false
@@ -134,6 +148,8 @@ ActiveRecord::Schema.define(version: 2022_01_20_235132) do
   add_foreign_key "answers", "users"
   add_foreign_key "comments", "users"
   add_foreign_key "follows", "users"
+  add_foreign_key "notifications", "users", column: "actor_id"
+  add_foreign_key "notifications", "users", column: "recipient_id"
   add_foreign_key "questions", "subjects"
   add_foreign_key "questions", "users"
   add_foreign_key "votes", "questions"
