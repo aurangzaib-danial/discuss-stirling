@@ -16,7 +16,6 @@ class Question < ApplicationRecord
   end
 
   def voted?(user)
-    return false if user.nil?
     votes.exists?(user: user)
   end
 
@@ -26,5 +25,9 @@ class Question < ApplicationRecord
 
   def follow!(user)
     follows.create(user: user)
+  end
+
+  def following?(user)
+    follows.exists?(user: user)
   end
 end

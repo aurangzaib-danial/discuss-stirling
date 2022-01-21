@@ -22,7 +22,10 @@ Rails.application.routes.draw do
   resources :questions, except: [:new, :show] do
     resources :answers, only: [:create, :edit, :update, :destroy]
     resources :votes, only: [:create, :destroy]
-    resources :comments, only: [:create, :update, :destroy], module: :questions
+    scope module: :questions do
+      resources :comments, only: [:create, :update, :destroy]
+      resources :follows, only: [:create, :destroy]
+    end
   end
 
   resources :answers, only: [] do

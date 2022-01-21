@@ -8,8 +8,10 @@
     <div class="text-end mt-5">
 
       <% if policy(@question).edit? %>
-        <%= link_to 'Edit', edit_question_path(@question), class: "text-muted text-decoration-none" %><br>
+        <%= link_to 'Edit', edit_question_path(@question), class: "text-muted text-decoration-none me-2" %>
       <% end %>
+
+      <%= follow_button @question %><br>
       
       <%= user_info(@question.questioner) %> <span class="text-muted"> asked <%= created_at_in_words(@question) %></span>
     </div>
