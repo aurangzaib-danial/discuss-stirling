@@ -30,4 +30,11 @@ class Question < ApplicationRecord
   def following?(user)
     follows.exists?(user: user)
   end
+
+  # except parameter for the user that should not be notified because they are the actor of the notification
+  def notify_followers(except:)
+    followers.where.not(id: except.id).each do |follower|
+      Notification.create(recipient: follower, actor: except, action: "answered", notifiable: self)
+    end
+  end
 end

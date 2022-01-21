@@ -10,6 +10,7 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       if @answer.save
+        @question.notify_followers except: current_user
         format.turbo_stream
         format.html { redirect_to slug_path(@question), notice: "Answer posted!" }
       else
