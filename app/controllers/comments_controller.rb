@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     @comment.commentator = current_user
     
     if @comment.save
+      @commentable.notify_followers except: current_user, action: "commented"
       respond_to do |format|
         format.turbo_stream { render turbo_stream: turbo_stream.append("#{dom_id(@commentable)}_comments", partial: "comments/comment", locals: {commentable: @commentable, comment: @comment}) }
       end
