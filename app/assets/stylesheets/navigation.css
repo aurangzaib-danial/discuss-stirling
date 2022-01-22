@@ -1,0 +1,33 @@
+.navbar-nav {
+  flex-direction: row;
+}
+
+.navbar-nav .nav-link {
+  padding-right: .5rem;
+  padding-left: .5rem;
+}
+
+
+@media only screen and (min-width: 768px) {
+  nav .collapse {
+    margin-top: 0 !important;
+    margin-right: 1rem !important;
+    order: 3 !important;
+  }
+
+  nav .main-nav-links {
+    order: 4 !important;
+  }
+}
+
+.rounded-initial {
+  display: inline-block;
+  font-size: 1em;
+  width: 2.5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  text-align: center;
+  border-radius: 50%;
+  background: #D9B28E;
+  color: white;
+}

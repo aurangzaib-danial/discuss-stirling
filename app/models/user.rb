@@ -17,7 +17,7 @@ class User < ApplicationRecord
   has_many :followed_questions, -> { distinct }, through: :follows, source: :followable, source_type: "Question"
   has_many :followed_answers, -> { distinct }, through: :follows, source: :followable, source_type: "Answer"
   has_many :notifications, foreign_key: :recipient_id, inverse_of: :recipient, dependent: :delete_all
-    
+
 
   def set_account!(account)
     update!(account: account + "_account", account_selected: true)
@@ -37,5 +37,9 @@ class User < ApplicationRecord
 
   def first_name
     name.split.first
+  end
+
+  def name_initial
+    name[0].capitalize
   end
 end

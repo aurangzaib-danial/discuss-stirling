@@ -1,5 +1,8 @@
 <%= title "Discuss Stirling - Q/A Space for Stirling University Students", home: true %>
 
+<div class="d-flex justify-content-center mt-3">
+  <%= link_to "Ask Question", ask_question_path, class: "btn btn-primary"%> 
+</div>
 
 <ul class="container custom-container mt-5">
   <% Question.order(:id).each do |question| %>
