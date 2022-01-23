@@ -1,21 +1,9 @@
 <li>
-  
-  <span><%= notification_title(notification) %></span><br>
-  <span><%= notification_question_title(notification) %></span><br>
-  <span><%= created_at_in_words(notification) %></span>
+  <%= link_to notification_link(notification), class: "dropdown-item" do %>
+    <span><%= notification_title(notification) %></span><br>
+    <span><%= notification_question(notification).title %></span><br>
+    <span><%= created_at_in_words(notification) %></span>
+  <% end %>
 </li>
 
-
-
-<!-- Aurangzaib answered a question that you are following
-This question
-1 day ago
-
-
-Sunny commented on a answer that you are following
-This question
-1 day ago
-
-Sunny commented on a question that you are followign
-This question
-1 day ago -->
+<li><hr class="dropdown-divider"></li>
