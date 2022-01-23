@@ -14,7 +14,6 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.build(question_params)
 
     if @question.save
-      @question.follow!(current_user) # make a user automatically follow their own question
       redirect_to slug_path(@question)
     else
       render :ask, status: :unprocessable_entity

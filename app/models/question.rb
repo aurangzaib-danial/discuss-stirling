@@ -8,6 +8,12 @@ class Question < ApplicationRecord
   has_many :follows, as: :followable, dependent: :delete_all
   has_many :followers, -> { distinct }, through: :follows, source: :user
 
+
+  after_create do
+    # questioner automatically follows their new question
+    follows.create(user: questioner)
+  end
+
   validates :title, presence: true, length: { minimum: 15, maximum: 150 }
   include BodyValidations
 
@@ -21,10 +27,6 @@ class Question < ApplicationRecord
 
   def user_vote(user)
     votes.find_by(user: user)
-  end
-
-  def follow!(user)
-    follows.create(user: user)
   end
 
   def following?(user)

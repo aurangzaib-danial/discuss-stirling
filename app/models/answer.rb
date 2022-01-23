@@ -6,6 +6,11 @@ class Answer < ApplicationRecord
   has_many :follows, as: :followable, dependent: :delete_all
   has_many :followers, -> { distinct }, through: :follows, source: :user
 
+  after_create do
+    # user automatically follows their new answer
+    follows.create(user: user)
+  end
+
   include BodyValidations
 
   def following?(user)
