@@ -6,10 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-users = [
-  User.create(email: "aurangzaib.danial@gmail.com", name: "Aurangzaib Khan", password: "123456", account: "public_account", account_selected: true),
-  User.create(email: "ali@gmail.com", name: "Ali", password: "123456", account: "public_account", account_selected: true)
-]
+
 
 subject_titles = [
   "Accounting and Finance",
@@ -43,16 +40,14 @@ subject_titles = [
 
 subject_titles.each {|subject_title| Subject.create!(title: subject_title)}
 
-10.times do |index|
-  q = Question.new
-  q.title = "This is a dummy title for this question. The question number is #{index + 1}"
-  q.questioner = User.first
-  q.body = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-  q.subject = Subject.first
-  q.save!
-end
+if Rails.env == "development"
 
-first_question = Question.first
-5.times do |index|
-  first_question.comments.create!(body: "This is comment #{index + 1}", commentator: users.sample)
+  User.create(email: "aurangzaib.danial@gmail.com", name: "Aurangzaib Khan", password: "123456", account: "public_account", account_selected: true)
+  User.create(email: "ali@gmail.com", name: "Ali", password: "123456", account: "public_account", account_selected: true)
+  User.create(email: "aurangzaib.danial@icloud.com", name: "Sunny", password: "123456", account: "private_account", account_selected: true)
+
+
+  Question.create(title: Faker::Lorem.sentence, questioner: User.first, body: Faker::Lorem.paragraph, subject: Subject.first)
+  Question.create(title: Faker::Lorem.sentence, questioner: User.second, body: Faker::Lorem.paragraph, subject: Subject.first)
+
 end
