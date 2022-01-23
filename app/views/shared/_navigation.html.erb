@@ -10,12 +10,16 @@
       <% if user_signed_in? %>
         
         <li class="nav-item dropdown <%= "me-2" unless current_user.private_account? %>">
-          <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-bell-fill"></i> <span class="badge bg-danger">4</span></a>
+          <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-bell-fill"></i> 
+            <span class="badge bg-danger" id="unreadNotificationsCount"><%= current_user.notifications.unread_count %></span>
+          </a>
           
           <ul class="dropdown-menu position-absolute dropdown-menu-end" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">First notification</a></li>
             <li><a class="dropdown-item" href="#">Second notification</a></li>
             <li><a class="dropdown-item" href="#">Third notification</a></li>
+            <li></li>
           </ul>
 
         </li>
