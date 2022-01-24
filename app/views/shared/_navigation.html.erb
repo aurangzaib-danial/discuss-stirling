@@ -10,17 +10,18 @@
       <% if user_signed_in? %>
         
         
-        <li class="nav-item dropdown notifications-dropdown <%= "me-2" unless current_user.private_account? %>">
-          <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <li class="nav-item dropdown notifications-dropdown <%= "me-2" unless current_user.private_account? %>" data-controller="notifications">
+          <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-action="notifications#markAsRead">
             <i class="bi bi-bell-fill"></i> 
-            <span class="badge bg-danger d-none" id="unreadNotificationsCount"><%= current_user.notifications.unread_count %></span>
+            <%= render "notifications/unread_count" %>
           </a>
           
           <ul class="dropdown-menu position-absolute dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= render current_user.notifications %>
+            <div id="recentNotifications" data-notifications-target="recent">              
+              <%#= render current_user.notifications.recent %>
+            </div>
             <li class="text-center"><%= link_to "All Notifications", notifications_path, class: "text-muted text-decoration-none dropdown-item" %></li>
           </ul>
-
         </li>
 
 

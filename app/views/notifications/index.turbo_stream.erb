@@ -1,0 +1,5 @@
+<%= turbo_stream.replace "recentNotifications" do %>
+  <%= render @notifications %>
+<% end %>
+
+<%= turbo_stream.replace "unreadNotificationsCount", partial: "notifications/unread_count" %>

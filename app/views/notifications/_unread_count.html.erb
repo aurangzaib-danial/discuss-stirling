@@ -1,0 +1,1 @@
+<%= content_tag :span, current_user.notifications.unread_count, class: "badge bg-danger #{"d-none" if current_user.notifications.unread_count.zero?}", id: "unreadNotificationsCount", data: {notifications_target: "unreadCount"}  %>

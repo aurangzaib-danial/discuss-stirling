@@ -38,5 +38,9 @@ Rails.application.routes.draw do
   get "questions/:id/:slug", to: "questions#show", as: "question_slug"
 
 
-  resources :notifications, only: :index
+  resources :notifications, only: :index do
+    collection do
+      patch :mark_as_read
+    end
+  end
 end

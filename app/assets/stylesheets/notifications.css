@@ -6,3 +6,7 @@ ul.notifications {
 ul.notifications .dropdown-item {
   white-space: initial;
 }
+
+.unread {
+  border-left: 2px solid red;
+}
