@@ -10,7 +10,7 @@
       <% if user_signed_in? %>
         
         
-        <li class="nav-item dropdown <%= "me-2" unless current_user.private_account? %>">
+        <li class="nav-item dropdown notifications-dropdown <%= "me-2" unless current_user.private_account? %>">
           <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi bi-bell-fill"></i> 
             <span class="badge bg-danger d-none" id="unreadNotificationsCount"><%= current_user.notifications.unread_count %></span>
@@ -18,7 +18,7 @@
           
           <ul class="dropdown-menu position-absolute dropdown-menu-end" aria-labelledby="navbarDropdown">
             <%= render current_user.notifications %>
-            <li class="text-center"><a href="#" class="text-muted text-decoration-none">All Notifications</a></li>
+            <li class="text-center"><a href="#" class="text-muted text-decoration-none dropdown-item">All Notifications</a></li>
           </ul>
 
         </li>

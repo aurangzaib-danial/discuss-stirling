@@ -1,12 +1,13 @@
 module NotificationHelper
   def notification_title(notification)
-    name = user_info(notification.actor)
+    name = "<strong>#{user_info(notification.actor)}</strong>"
     action = notification_action(notification)
     if action == "answered"
-      "#{name} #{action} a question that you are following"
+      title = "#{name} #{action} a question that you are following"
     else
-      "#{name} #{action} on #{notifiable_type_with_article(notification)} that you are following"
+      title = "#{name} #{action} on #{notifiable_type_with_article(notification)} that you are following"
     end
+    title.html_safe
   end
 
   def notification_question(notification)

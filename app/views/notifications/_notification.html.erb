@@ -1,8 +1,8 @@
 <li>
   <%= link_to notification_link(notification), class: "dropdown-item" do %>
     <span><%= notification_title(notification) %></span><br>
-    <span><%= notification_question(notification).title %></span><br>
-    <span><%= created_at_in_words(notification) %></span>
+    <span class="text-primary"><%= notification_question(notification).title %></span><br>
+    <span class="text-muted"><%= created_at_in_words(notification) %></span>
   <% end %>
 </li>
 
