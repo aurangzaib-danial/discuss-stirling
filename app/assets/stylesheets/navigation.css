@@ -36,7 +36,7 @@ nav .dropdown-item {
   font-size: 12px;
 }
 
-nav .dropdown-item:active {
+.dropdown-item:active {
   background-color: #e9ecef;
 }
 

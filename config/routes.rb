@@ -35,6 +35,8 @@ Rails.application.routes.draw do
     end
   end
 
-
   get "questions/:id/:slug", to: "questions#show", as: "question_slug"
+
+
+  resources :notifications, only: :index
 end

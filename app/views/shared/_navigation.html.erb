@@ -18,7 +18,7 @@
           
           <ul class="dropdown-menu position-absolute dropdown-menu-end" aria-labelledby="navbarDropdown">
             <%= render current_user.notifications %>
-            <li class="text-center"><a href="#" class="text-muted text-decoration-none dropdown-item">All Notifications</a></li>
+            <li class="text-center"><%= link_to "All Notifications", notifications_path, class: "text-muted text-decoration-none dropdown-item" %></li>
           </ul>
 
         </li>

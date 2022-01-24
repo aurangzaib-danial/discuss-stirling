@@ -6,4 +6,5 @@ class Notification < ApplicationRecord
 
   scope :unread, -> { where(read_at: nil) }
   scope :unread_count, -> { unread.count }
+  scope :ordered_by_latest, -> { order(created_at: :desc)}
 end

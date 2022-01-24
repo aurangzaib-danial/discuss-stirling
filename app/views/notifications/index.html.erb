@@ -1,0 +1,5 @@
+<main class="container custom-container mt-4">
+  <ul class="notifications">
+    <%= render(@notifications) || content_tag(:li, "You have no notifications", class: "text-center fs-4") %>
+  </ul>
+</main>
