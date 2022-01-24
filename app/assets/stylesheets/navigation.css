@@ -20,7 +20,7 @@
   }
 }
 
-.rounded-initial {
+nav .rounded-initial {
   display: inline-block;
   font-size: 1em;
   width: 2.5em;
@@ -32,8 +32,12 @@
   color: white;
 }
 
-.dropdown-item {
-  font-size: 12px !important;
+nav .dropdown-item {
+  font-size: 12px;
+}
+
+nav .dropdown-item:active {
+  background-color: #e9ecef;
 }
 
 
