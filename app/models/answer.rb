@@ -5,6 +5,8 @@ class Answer < ApplicationRecord
   has_many :comments, as: :commentable, dependent: :delete_all
   has_many :follows, as: :followable, dependent: :delete_all
   has_many :followers, -> { distinct }, through: :follows, source: :user
+  has_many :notifiable_notifications, class_name: "Notification", as: :notifiable, dependent: :delete_all
+  has_many :actionable_notifications, class_name: "Notification", as: :actionable, dependent: :delete_all
 
   after_create do
     # user automatically follows their new answer

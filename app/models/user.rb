@@ -17,6 +17,8 @@ class User < ApplicationRecord
   has_many :followed_questions, -> { distinct }, through: :follows, source: :followable, source_type: "Question"
   has_many :followed_answers, -> { distinct }, through: :follows, source: :followable, source_type: "Answer"
   has_many :notifications, foreign_key: :recipient_id, inverse_of: :recipient, dependent: :delete_all
+  has_many :actored_notifications, class_name: "Notification", foreign_key: :actor_id, inverse_of: :actor, dependent: :delete_all
+  has_many :answers, dependent: :delete_all
 
 
   def set_account!(account)

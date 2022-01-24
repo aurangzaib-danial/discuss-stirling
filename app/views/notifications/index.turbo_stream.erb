@@ -1,5 +1,7 @@
 <%= turbo_stream.replace "recentNotifications" do %>
-  <%= render @notifications %>
+  <div id="recentNotifications" data-notifications-target="recent">  
+    <%= render @notifications %>
+  </div>
 <% end %>
 
 <%= turbo_stream.replace "unreadNotificationsCount", partial: "notifications/unread_count" %>
