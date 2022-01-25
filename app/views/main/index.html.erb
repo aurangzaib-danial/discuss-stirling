@@ -1,11 +1,33 @@
 <%= title "Discuss Stirling - Q/A Space for Stirling University Students", home: true %>
 
-<div class="d-flex justify-content-center mt-3">
-  <%= link_to "Ask Question", ask_question_path, class: "btn btn-primary"%> 
-</div>
+<main class="container custom-container mt-4">
+  <div class="d-flex justify-content-between">
+    <h1 class="fs-3 fw-normal">Recent Questions</h1>  
 
-<ul class="container custom-container mt-5">
-  <% Question.order(:id).each do |question| %>
-    <li><h5 class="fw-normal"><%= link_to question.title, slug_path(question) %></h5></li>
-  <% end %>
-</ul>
+    <div>
+      <%= link_to "Ask Question", ask_question_path, class: "btn btn-primary"%> 
+    </div>
+  </div>
+
+  <div>
+    <ul class="questions mt-4">
+      <% Question.recent.each do |question| %>
+        <li>
+          <div class="text-muted small-text">
+            <span class="me-1"><%= pluralize(question.answers_count, 'answer') %></span>
+            <span><%= pluralize(question.votes_count, 'vote') %></span>
+          </div>
+
+          <%= link_to question.title, slug_path(question), class: "text-decoration-none" %>
+
+          <div class="d-flex justify-content-between small-text">
+            <%= link_to question.subject.title, "#", class: "text-dark text-decoration-none" %>
+            <div>
+              <%= question_info(question) %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</main>

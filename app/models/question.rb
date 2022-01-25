@@ -9,6 +9,8 @@ class Question < ApplicationRecord
   has_many :followers, -> { distinct }, through: :follows, source: :user
   has_many :notifiable_notifications, class_name: "Notification", as: :notifiable, dependent: :delete_all
 
+  scope :recent, -> { order(created_at: :desc) }
+
 
   after_create do
     # questioner automatically follows their new question

@@ -1,0 +1,10 @@
+ul.questions {
+  list-style: none;
+  padding: 0;
+  --border-properties:  1px solid rgba(0,0,0,.125);
+}
+
+ul.questions li {
+  border-top: var(--border-properties);
+  padding: 1rem;
+}

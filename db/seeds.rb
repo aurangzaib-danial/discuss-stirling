@@ -42,12 +42,17 @@ subject_titles.each {|subject_title| Subject.create!(title: subject_title)}
 
 if Rails.env == "development"
 
-  User.create(email: "aurangzaib.danial@gmail.com", name: "Aurangzaib Khan", password: "123456", account: "public_account", account_selected: true)
-  User.create(email: "ali@gmail.com", name: "Ali", password: "123456", account: "public_account", account_selected: true)
-  User.create(email: "aurangzaib.danial@icloud.com", name: "Sunny", password: "123456", account: "private_account", account_selected: true)
+  subjects = Subject.all
+
+  users = [
+    User.create(email: "aurangzaib.danial@gmail.com", name: "Aurangzaib Khan", password: "123456", account: "public_account", account_selected: true),
+    User.create(email: "ali@gmail.com", name: "Ali", password: "123456", account: "public_account", account_selected: true),
+    User.create(email: "aurangzaib.danial@icloud.com", name: "Sunny", password: "123456", account: "private_account", account_selected: true),
+  ]
 
 
-  Question.create(title: Faker::Lorem.sentence, questioner: User.first, body: Faker::Lorem.paragraph, subject: Subject.first)
-  Question.create(title: Faker::Lorem.sentence, questioner: User.second, body: Faker::Lorem.paragraph, subject: Subject.first)
+  20.times do
+    Question.create(title: Faker::Lorem.sentence, questioner: users.sample, body: Faker::Lorem.paragraph, subject: subjects.sample)
+  end
 
 end

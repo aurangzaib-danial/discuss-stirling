@@ -1,2 +1,4 @@
 <%= turbo_stream.append "answers", @answer %>
-<%= turbo_stream.replace "answersCount", answers_count(@question.answers_count) %>
+<%= turbo_stream.replace "answersCount" do %>
+  <span id="answersCount"><%= pluralize(@question.answers_count, 'Answer') %></span>
+<% end %>

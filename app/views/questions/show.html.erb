@@ -17,14 +17,14 @@
 
       <%= follow_button @question %><br>
       
-      <%= user_info(@question.questioner) %> <span class="text-muted"> asked <%= created_at_in_words(@question) %></span>
+      <%= question_info(@question) %>
     </div>
 
     <%= render "comments/comments", commentable: @question %>
   </section>
 
   <section id="answers" class="mt-5">
-    <h5 class="fw-normal"><%= answers_count(@question.answers_count) %></h5>
+    <h5 class="fw-normal"><span id="answersCount"><%= pluralize(@question.answers_count, 'Answer') %></span></h5>
     <%= render @question.answers %>
   </section>
 

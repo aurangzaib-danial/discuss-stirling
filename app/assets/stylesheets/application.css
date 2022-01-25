@@ -15,7 +15,7 @@
  */
 
 .custom-container {
-  max-width: 900px;  
+  max-width: 800px;  
 }
 
 button .show-when-enabled {
@@ -32,4 +32,8 @@ button:disabled .show-when-enabled {
 
 button:disabled .show-when-disabled {
   display: initial;
+}
+
+.small-text {
+  font-size: 14px;
 }
