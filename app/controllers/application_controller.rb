@@ -11,6 +11,11 @@ class ApplicationController < ActionController::Base
   end  
 
   def slug_path(object, options = {})
-    question_slug_path(object.id, object.slug, options)
+    case object.class.name
+    when "Question"
+      question_slug_path(object.id, object.slug, options)
+    when "Subject"
+      subject_slug_path(object.slug, options)
+    end
   end
 end

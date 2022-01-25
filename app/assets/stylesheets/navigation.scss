@@ -36,22 +36,3 @@ nav .dropdown-item {
   font-size: 12px;
 }
 
-.dropdown-item:active {
-  background-color: #e9ecef;
-}
-
-
-@media only screen and (max-width: 500px) {
-  .notifications-dropdown {
-    position: static;
-  }
-
-  .notifications-dropdown .dropdown-menu {
-    font-size: 12px;
-    width: 100%;
-  }
-
-  .notifications-dropdown .dropdown-menu .dropdown-item {
-    white-space: initial;
-  }
-}
