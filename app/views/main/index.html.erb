@@ -13,10 +13,10 @@
 
     <ul class="nav nav-tabs justify-content-center">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Recent</a>
+        <%= link_to "Recent", root_path, tab_link_options("recent") %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Most Votes</a>
+        <%= link_to "Most Votes", root_path(tab: "most-votes"), tab_link_options("most-votes") %>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Subjects</a>
@@ -32,7 +32,7 @@
 
   <div>
     <ul class="questions mt-4">
-      <% Question.recent.each do |question| %>
+      <% @questions.each do |question| %>
         <li>
           <div class="text-muted small-text">
             <span class="me-1"><%= pluralize(question.answers_count, 'answer') %></span>

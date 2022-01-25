@@ -10,6 +10,7 @@ class Question < ApplicationRecord
   has_many :notifiable_notifications, class_name: "Notification", as: :notifiable, dependent: :delete_all
 
   scope :recent, -> { order(created_at: :desc) }
+  scope :most_votes, -> { order(votes_count: :desc)}
 
 
   after_create do
