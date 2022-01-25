@@ -1,0 +1,34 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'actiontext.css';
+@import 'auth';
+@import 'bootstrap_overrides';
+@import 'comments';
+@import 'navigation';
+@import 'notifications';
+@import 'questions';
+@import 'select_account';
+
+
+.custom-container {
+  max-width: 800px;  
+}
+
+button .show-when-enabled {
+  display: initial;
+}
+
+button .show-when-disabled {
+  display: none;
+}
+
+button:disabled .show-when-enabled {
+  display: none;
+}
+
+button:disabled .show-when-disabled {
+  display: initial;
+}
+
+.small-text {
+  font-size: 14px;
+}
