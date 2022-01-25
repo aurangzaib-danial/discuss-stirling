@@ -4,7 +4,7 @@ import { get, patch } from '@rails/request.js'
 
 // Connects to data-controller="notifications"
 export default class extends Controller {
-  static targets = ["unreadCount", "markAsReadForm"]
+  static targets = ["unreadCount"]
   
   connect() {
     this.startRefreshing()

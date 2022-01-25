@@ -5,6 +5,8 @@ ul.questions {
 }
 
 ul.questions li {
-  border-top: var(--border-properties);
+  border-bottom: var(--border-properties);
   padding: 1rem;
 }
+
+
