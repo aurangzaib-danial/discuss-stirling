@@ -12,3 +12,23 @@
   background-color: #e9ecef;
   color: black;
 }
+
+.form-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+      appearance: none;
+}
+
+@media only screen and (max-width: 500px) {
+  .dropdown {
+    position: static;
+  }
+
+  .dropdown-menu {
+    width: 100%;
+  }
+
+  .dropdown-menu .dropdown-item {
+    white-space: initial;
+  }
+}

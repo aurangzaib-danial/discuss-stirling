@@ -32,18 +32,3 @@ button:disabled .show-when-disabled {
 .small-text {
   font-size: 14px;
 }
-
-
-@media only screen and (max-width: 500px) {
-  .dropdown {
-    position: static;
-  }
-
-  .dropdown-menu {
-    width: 100%;
-  }
-
-  .dropdown-menu .dropdown-item {
-    white-space: initial;
-  }
-}
