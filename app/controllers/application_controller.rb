@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     when "Question"
       question_slug_path(object.id, object.slug, options)
     when "Subject"
-      subject_slug_path(object.slug, options)
+      subject_slug_path(object.id, object.slug, options)
     end
   end
 end

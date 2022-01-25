@@ -44,5 +44,5 @@ Rails.application.routes.draw do
     end
   end
 
-  get "subjects/:slug", to: "subjects#show", as: :subject_slug
+  get "subjects/:id/:slug", to: "subjects#show", as: :subject_slug
 end

@@ -1,8 +1,8 @@
-<%= title "Discuss Stirling - Q/A Space for Stirling University Students", home: true %>
+<% title @subject.title %>
 
 <main class="container custom-container mt-4">
   <div class="d-flex justify-content-between">
-    <h1 class="fs-3 fw-normal"><%= params[:tab] == "most-votes" ? "Most Votes" : "Recent Questions" %></h1>  
+    <h1 class="fs-3 fw-normal"><%= @subject.title %></h1>  
 
     <div>
       <%= link_to "Ask Question", ask_question_path, class: "btn btn-primary"%> 
@@ -13,10 +13,10 @@
 
     <ul class="nav nav-tabs justify-content-center">
       <li class="nav-item">
-        <%= link_to "Recent", root_path, tab_link_options("recent") %>
+        <%= link_to "Recent", slug_path(@subject), tab_link_options("recent") %>
       </li>
       <li class="nav-item">
-        <%= link_to "Most Votes", root_path(tab: "most-votes"), tab_link_options("most-votes") %>
+        <%= link_to "Most Votes", slug_path(@subject, tab: "most-votes"), tab_link_options("most-votes") %>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Subjects</a>
@@ -30,8 +30,12 @@
 
   </div>
 
-  <div>
-    <ul class="questions mt-4">
+  <div class="mt-4">
+    <% if @questions.empty? %>
+      <%= link_to "There are no questions for this subject yet.", ask_question_path, class: "text-decoration-none" %>
+    <% end %>
+
+    <ul class="questions">
       <% @questions.each do |question| %>
         <li>
           <div class="text-muted small-text">
@@ -42,7 +46,6 @@
           <%= link_to question.title, slug_path(question), class: "text-decoration-none" %>
 
           <div class="d-flex justify-content-between small-text flex-column flex-sm-row">
-            <%= link_to question.subject.title, slug_path(question.subject), class: "text-dark text-decoration-none me-2" %>
             <div>
               <%= question_info(question) %>
             </div>
