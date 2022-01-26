@@ -7,5 +7,7 @@ class SubjectsController < ApplicationController
     else
       @questions = @subject.questions.recent
     end
+
+    @questions = @questions.page(params[:page])
   end
 end

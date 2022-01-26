@@ -5,5 +5,7 @@ class MainController < ApplicationController
     else
       @questions = Question.recent
     end
+
+    @questions = @questions.page(params[:page])
   end
 end

@@ -84,3 +84,5 @@ gem "devise", "~> 4.8"
 gem "pundit", "~> 2.1"
 
 gem "record_tag_helper", "~> 1.0"
+
+gem "kaminari", "~> 1.2"
