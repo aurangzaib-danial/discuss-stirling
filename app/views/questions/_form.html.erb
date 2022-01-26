@@ -14,5 +14,5 @@
     <%= field_with_errors form, :rich_text_area, :body %>
   </div>
 
-  <%= form.submit button_text, class: "btn btn-primary" %>
+  <%= form.button(class: "btn btn-primary") {  button_content(button_text) }%>
 <% end %>
