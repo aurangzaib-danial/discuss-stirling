@@ -7,15 +7,12 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
     @answer = @question.answers.build(answer_params)
     @answer.user = current_user
-
-    respond_to do |format|
-      if @answer.save
-        @question.notify_followers except: current_user, actionable: @answer
-        format.turbo_stream
-        format.html { redirect_to slug_path(@question), notice: "Answer posted!" }
-      else
-        format.html { redirect_to slug_path(@question), alert: "Body for answer is missing" }
-      end
+    
+    if @answer.save
+      @question.notify_followers except: current_user, actionable: @answer
+      redirect_to slug_path(@question, anchor: dom_id(@answer))
+    else
+      redirect_to slug_path(@question), alert: "Body for answer is missing"
     end
   end
 
