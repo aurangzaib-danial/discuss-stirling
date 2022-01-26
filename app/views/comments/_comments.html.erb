@@ -1,4 +1,4 @@
-<div class="comments mt-5">
+<div class="comments mt-5 small-text">
 
   <%= content_tag :ul, id: "#{dom_id(commentable)}_comments" do %>
     <% commentable.comments.order(:created_at).each do |comment| %>

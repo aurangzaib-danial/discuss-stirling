@@ -2,7 +2,7 @@
 
 <main class="container custom-container mt-3">
   <section id="question">
-    <h3><%= @question.title %></h3>
+    <h1 class="fs-4 fw-normal"><%= @question.title %></h1>
     <p><%= @question.subject.title %></p>
     <%= render "votes/votes", question: @question %>
     <hr>
@@ -11,7 +11,7 @@
       <%= @question.body %>
     </div>
 
-    <div class="text-end mt-5">
+    <div class="text-end mt-5 small-text">
 
       <% if policy(@question).edit? %>
         <%= link_to 'Edit', edit_question_path(@question), class: "text-muted text-decoration-none me-2" %>

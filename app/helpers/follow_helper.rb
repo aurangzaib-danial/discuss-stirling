@@ -9,7 +9,7 @@ module FollowHelper
       button_text = "Follow"
     end
  
-    button_to button_text, [followable, follow], method: form_method, class: "btn btn-link align-baseline p-0 text-muted text-decoration-none", form_class: "d-inline", form: { id: follow_id(followable)}
+    button_to button_text, [followable, follow], method: form_method, class: "btn btn-link align-baseline p-0 text-muted text-decoration-none small-text", form_class: "d-inline", form: { id: follow_id(followable)}
   end
 
   def follow_id(followable)

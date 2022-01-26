@@ -1,5 +1,5 @@
 <div class="text-end" id="votes"> 
-  <span class="fs-6 me-2"><%= pluralize(question.votes_count, 'Vote') %></span>
+  <span class="small-text me-2"><%= pluralize(question.votes_count, 'Vote') %></span>
   <% if policy(question).vote? %> 
     <%= vote_button(question) %>
   <% end %>
