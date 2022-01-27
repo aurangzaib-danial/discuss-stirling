@@ -14,18 +14,25 @@
   </head>
 
   <body>
+    <!-- Wrapper is exclusively for implementing sticky footer -->
+    <div class="wrapper">
+      <header>
+        <%= render "shared/navigation" %>
+      </header>
 
-    <header>
-      <%= render "shared/navigation" %>
-    </header>
+      <%= render "shared/flash" %>
 
-    <%= render "shared/flash" %>
+      <%= yield %>
+    </div>
 
-    <%= yield %>
+    <footer class="footer mt-5">
+        <span class="mb-2">Feedback or report a problem? <a href="mailto:aurangzaib.danial@gmail.com" class="text-decoration-none text-muted">Email me</a></span>
 
-    <footer class="mt-5">
-      
+        <div class="footer-links">
+          <%= link_to "Contribute", "https://github.com/aurangzaib-danial/discuss-stirling", target: "_blank"%>
+          <%= link_to "Privacy", privacy_path %>
+          <%= link_to "Terms", terms_path %>
+        </div>
     </footer>
-    
   </body>
 </html>

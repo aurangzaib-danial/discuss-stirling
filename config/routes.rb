@@ -1,6 +1,8 @@
 Rails.application.routes.draw do 
 
   root "main#index" 
+  get "/privacy", to: "main#privacy"
+  get "/terms", to: "main#terms"
   
   devise_for(
     :users, 
@@ -35,7 +37,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get "questions/:id/:slug", to: "questions#show", as: "question_slug"
+  get "/questions/:id/:slug", to: "questions#show", as: "question_slug"
 
 
   resources :notifications, only: :index do
@@ -44,5 +46,5 @@ Rails.application.routes.draw do
     end
   end
 
-  get "subjects/:id/:slug", to: "subjects#show", as: :subject_slug
+  get "/subjects/:id/:slug", to: "subjects#show", as: :subject_slug
 end
