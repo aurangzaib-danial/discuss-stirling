@@ -30,6 +30,9 @@
   max-width: 100% !important;
 }
 
+.trix-content action-text-attachment .attachment__caption {
+  display: none;
+}
 
 trix-editor {
   min-height: 12.5em;
