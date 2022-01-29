@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root "main#index" 
   get "/privacy", to: "main#privacy"
   get "/terms", to: "main#terms"
+
+  get "/settings", to: "settings#show"
+  patch "/settings", to: "settings#update"
+
   
   devise_for(
     :users, 
@@ -47,4 +51,5 @@ Rails.application.routes.draw do
   end
 
   get "/subjects/:id/:slug", to: "subjects#show", as: :subject_slug
+
 end

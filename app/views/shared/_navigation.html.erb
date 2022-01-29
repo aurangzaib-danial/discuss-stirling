@@ -35,7 +35,7 @@
           </a>
 
           <ul class="dropdown-menu position-absolute dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to "Settings", settings_path, class: "dropdown-item" %>
             <li><hr class="dropdown-divider"></li>
             <li><%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-link dropdown-item" %></li>
           </ul>

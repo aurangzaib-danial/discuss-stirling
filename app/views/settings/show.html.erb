@@ -1,0 +1,33 @@
+<main id="settings" class="container mt-3">
+  <%= form_with model: current_user, url: settings_path do |form| %>
+    <div class="mb-3">
+      <%= form.label :name, class: "form-label" %>
+      <%= field_with_errors(form, :text_field, :name) %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :email, class: "form-label" %>
+      <%= field_with_errors(form, :email_field, :email) %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :email, class: "form-label" %>
+      <%= field_with_errors(form, :email_field, :email) %>
+    </div>
+
+
+    <div class="mb-3">
+      <%= form.label :password, class: "form-label" %>
+      <%= field_with_errors(form, :password_field, :password) %>
+      <div id="userPasswordHelp" class="form-text">
+        Leave blank if you do not want to change it
+      </div>
+    </div>
+
+
+    <div class="d-grid">
+      <%= form.button(class: "btn btn-primary") { button_content("Update") } %>
+    </div>
+
+  <% end %>
+</main>
