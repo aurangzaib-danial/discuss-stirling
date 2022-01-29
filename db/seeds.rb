@@ -51,7 +51,7 @@ if Rails.env == "development"
   ]
 
 
-  1000.times do
+  500.times do
     Question.create(title: Faker::Lorem.sentence, questioner: users.sample, body: Faker::Lorem.paragraph, subject: subjects.sample)
   end
 

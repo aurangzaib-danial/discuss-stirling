@@ -42,4 +42,8 @@
     </div>
 
   <% end %>
+
+  <%= button_to(user_registration_path, method: :delete, class: "btn btn-danger", form: { data: { turbo_confirm: "Are you sure you want to delete your account? This action will cause everything related to your account deleted i.e. questions, answers etc." } }, form_class: "mt-4") { button_content "Delete account" } %>
+
+
 </main>
