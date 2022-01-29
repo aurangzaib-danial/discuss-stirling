@@ -1,8 +1,8 @@
 <main id="settings" class="container mt-3">
-  <%= form_with model: current_user, url: settings_path do |form| %>
+  <%= form_with model: @user, url: settings_path do |form| %>
     <div class="mb-3">
       <%= form.label :name, class: "form-label" %>
-      <%= field_with_errors(form, :text_field, :name) %>
+      <%= field_with_errors(form, :text_field, :name, required: false) %>
     </div>
 
     <div class="mb-3">
@@ -11,14 +11,24 @@
     </div>
 
     <div class="mb-3">
-      <%= form.label :email, class: "form-label" %>
-      <%= field_with_errors(form, :email_field, :email) %>
+      <div>
+        <%= form.radio_button :account, "private_account" %>
+        <%= form.label :account, "Private account", value: "private_account", class: "form-label d-inline" %>
+      </div>
+      <div >
+        <%= form.radio_button :account, "public_account" %>
+        <%= form.label :account, "Public account", value: "public_account", class: "form-label d-inline" %>
+      </div>
     </div>
 
+    <div class="mb-3">
+      <%= form.label :email_notifications_frequency, class: "form-label" %>
+      <%= form.select :email_notifications_frequency, {"Daily" => "daily", "Hourly" => "hourly", "Ten minutes" => "ten_minutes", "off" => "off"}, {}, { class: "form-select"} %>
+    </div>
 
     <div class="mb-3">
       <%= form.label :password, class: "form-label" %>
-      <%= field_with_errors(form, :password_field, :password) %>
+      <%= field_with_errors(form, :password_field, :password, required: false) %>
       <div id="userPasswordHelp" class="form-text">
         Leave blank if you do not want to change it
       </div>

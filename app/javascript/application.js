@@ -2,6 +2,6 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "trix"
-import "@rails/actiontext"
+import "./actiontext"
 import "@rails/request.js"
 import * as bootstrap from "bootstrap"

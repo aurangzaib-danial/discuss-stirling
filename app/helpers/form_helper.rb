@@ -4,7 +4,7 @@ module FormHelper
     if form.object.errors[attribute].present?
       render "shared/field_with_errors", form: form, field_type: field_type, attribute: attribute, options: options
     else
-      form.send(field_type, attribute, options.merge(class: "form-control", required: true))
+      form.send(field_type, attribute, {class: "form-control", required: true}.merge(options))
     end
   end
 
