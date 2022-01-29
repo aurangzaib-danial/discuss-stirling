@@ -4,6 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: :create
   # before_action :configure_account_update_params, only: [:update]
   before_action :redirect_if_account_not_selected, only: :new
+  before_action :redirect_on_update_actions, only: [:edit, :update]
 
   # GET /resource/sign_up
   # def new
@@ -71,5 +72,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :account, :account_selected])
+  end
+
+  def redirect_on_update_actions
+    redirect_to root_path
   end
 end
