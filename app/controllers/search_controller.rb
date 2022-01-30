@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   def index
-    @questions = Question.recent.page(params[:page])
+    @q = Question.ransack(params[:q])
+    @questions = @q.result(distinct: true).page(params[:page])
   end
 end

@@ -1,7 +1,11 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, except: :show
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-  after_action :verify_authorized, only: [:edit, :update, :destroy] 
+  after_action :verify_authorized, only: [:edit, :update, :destroy]
+
+
+  def index
+  end 
 
   def ask
     @question = Question.new

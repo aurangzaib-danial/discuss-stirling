@@ -1,9 +1,13 @@
-<% title "#{@questions.count} results" %>
+<% title search_query || "Search" %>
 
 <main class="container custom-container mt-4">
-  <h1 class="fs-3 fw-normal">Search results</h1>
+  <h1 class="fs-3 fw-normal">Search results </h1>
   <div>
-    <%= render "questions/questions", questions: @questions %>
+    <% if @questions.empty? %>
+      <p class="mt-3">Could not find any question :( </p>
+    <% else %>
+      <%= render "questions/questions", questions: @questions %>
+    <% end %>
   </div>
 
   <%= render "shared/paginate", questions: @questions  %>
