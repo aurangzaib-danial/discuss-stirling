@@ -30,27 +30,9 @@
 
   </div>
 
-  <div>
-    <ul class="questions mt-4">
-      <% @questions.each do |question| %>
-        <li>
-          <div class="text-muted small-text">
-            <span class="me-1"><%= pluralize(question.answers_count, 'answer') %></span>
-            <span><%= pluralize(question.votes_count, 'vote') %></span>
-          </div>
-
-          <%= link_to question.title, slug_path(question), class: "text-decoration-none" %>
-
-          <div class="d-flex justify-content-between small-text flex-column flex-sm-row">
-            <%= link_to question.subject.title, slug_path(question.subject), class: "text-dark text-decoration-none me-2" %>
-            <div>
-              <%= question_info(question) %>
-            </div>
-          </div>
-        </li>
-      <% end %>
-    </ul>
+  <div class="mt-4">
+    <%= render "questions/questions", questions: @questions %>
   </div>
 
-  <%= render "shared/paginate" %>
+  <%= render "shared/paginate", questions: @questions  %>
 </main>

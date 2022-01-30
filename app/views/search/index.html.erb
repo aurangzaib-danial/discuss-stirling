@@ -1,0 +1,10 @@
+<% title "#{@questions.count} results" %>
+
+<main class="container custom-container mt-4">
+  <h1 class="fs-3 fw-normal">Search results</h1>
+  <div>
+    <%= render "questions/questions", questions: @questions %>
+  </div>
+
+  <%= render "shared/paginate", questions: @questions  %>
+</main>

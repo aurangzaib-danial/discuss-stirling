@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get "/settings", to: "settings#show"
   patch "/settings", to: "settings#update"
 
+  get "/search", to: "search#index"
+
   
   devise_for(
     :users, 
