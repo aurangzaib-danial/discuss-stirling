@@ -11,6 +11,8 @@ class Answer < ApplicationRecord
   after_create do
     # user automatically follows their new answer
     follows.create(user: user)
+    # user follows the question as well if not following already
+    question.follows.create(user: user) unless question.following?(user)
   end
 
   include BodyValidations
