@@ -21,6 +21,7 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Subjects</a>
         <ul class="dropdown-menu dropdown-menu-end">
+          <li><%= link_to "All Subjects", root_path, class: "dropdown-item" %>
           <% Subject.order(:title).each do |subject| %>
             <li><%= link_to subject.title, slug_path(subject), class: "dropdown-item" %></li>
           <% end %>
