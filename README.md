@@ -1,24 +1,13 @@
-# README
+# Welcome to Discuss Stirling
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Discuss Stirling is a web-application that allows University of Stirling students to ask questions related to their subject and receive answers from peers. Even though, it is built for University of Stirling friends but really anyone can sign up.
 
-Things you may want to cover:
 
-* Ruby version
+## Backend
+The backend is managed by Ruby on Rails version 7.
 
-* System dependencies
+## Frontend
+- Bootstrap for responsive design.
+- Stimulus JS for connecting HTML with JavaScript.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Contributions
