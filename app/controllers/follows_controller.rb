@@ -2,6 +2,10 @@ class FollowsController < ApplicationController
   before_action :authenticate_user!
   after_action :verify_authorized, only: :destroy
 
+  def index
+    @questions = current_user.followed_questions.page(params[:page])
+  end
+
   def create
     @followable.follows.create(user: current_user)
     set_response

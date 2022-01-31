@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
 
 
   def index
+    @questions = current_user.questions.page(params[:page])
   end 
 
   def ask

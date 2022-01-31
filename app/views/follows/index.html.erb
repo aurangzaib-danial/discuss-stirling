@@ -1,15 +1,13 @@
-<%= title "Asked questions" %>
+<%= title "Followed questions" %>
 
 <main class="container custom-container mt-4">
   <div class="d-flex justify-content-between">
-    <h1 class="fs-3 fw-normal">Asked Questions</h1>  
+    <h1 class="fs-3 fw-normal">Followed Questions</h1>  
   </div>
 
   <div>
     <% if @questions.empty? %>
-      <%= link_to ask_question_path, class: "text-decoration-none" do %>
-        <p class="mt-3">You have not asked any question :(</p>
-      <% end %>
+      <p class="mt-3">You have are not following any question</p>
     <% else %>
       <%= render "questions/questions", questions: @questions %>
     <% end %>
