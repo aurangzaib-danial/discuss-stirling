@@ -1,6 +1,6 @@
 <%= content_tag :li, class: "#{'unread' if notification.read_at.nil? }" do %>
 
-  <%= link_to notification_link(notification), class: "dropdown-item" do %>
+  <%= link_to notification_link(notification), class: "dropdown-item", data: { turbolinks: false } do %>
     <span class="text-dark"><%= notification_title(notification) %></span><br>
     <span class="text-primary"><%= notification_question(notification).title %></span><br>
     <span class="text-muted"><%= created_at_in_words(notification) %></span>

@@ -46,13 +46,14 @@ if Rails.env == "development"
 
   users = [
     User.create(email: "aurangzaib.danial@gmail.com", name: "Aurangzaib Khan", password: "123456", account: "public_account", account_selected: true),
-    User.create(email: "ali@gmail.com", name: "Junaid", password: "123456", account: "public_account", account_selected: true),
-    User.create(email: "aurangzaib.danial@icloud.com", name: "Sunny", password: "123456", account: "private_account", account_selected: true),
+    User.create(email: "ali@gmail.com", name: "Ali", password: "123456", account: "public_account", account_selected: true),
+    User.create(email: "george@gmail.com", name: "George", password: "123456", account: "private_account", account_selected: true),
+    User.create(email: "henry@gmail.com", name: "Henry", password: "123456", account: "private_account", account_selected: true),
   ]
 
 
-  500.times do
-    Question.create(title: Faker::Lorem.sentence, questioner: users.sample, body: Faker::Lorem.paragraph, subject: subjects.sample)
+  100.times do
+    Question.create(title: Faker::Lorem.question(word_count: 10), questioner: users.sample, body: Faker::Lorem.paragraph_by_chars(number: 500), subject: subjects.sample)
   end
 
 end
