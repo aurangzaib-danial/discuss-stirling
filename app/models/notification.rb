@@ -8,4 +8,6 @@ class Notification < ApplicationRecord
   scope :unread_count, -> { unread.count }
   scope :ordered_by_latest, -> { order(created_at: :desc)}
   scope :recent, -> { ordered_by_latest.limit(5) }
+  scope :new_for_email, -> { where(notified_by_email: false) }
+  scope :new_for_email_count, -> { new_for_email.count }
 end

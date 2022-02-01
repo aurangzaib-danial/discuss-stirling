@@ -45,4 +45,11 @@ class User < ApplicationRecord
   def name_initial
     name[0].capitalize
   end
+
+  def notify_for_new_notifications_by_email
+    if notifications.new_for_email.any?
+      UserMailer.with(user: self).new_notifications
+      notifications.new_for_email.update_all(notified_by_email: true)
+    end
+  end
 end
