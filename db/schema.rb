@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_29_021846) do
+ActiveRecord::Schema.define(version: 2022_02_01_224051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 2022_01_29_021846) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "actionable_type", null: false
     t.bigint "actionable_id", null: false
+    t.boolean "notified_by_email", default: false
     t.index ["actionable_type", "actionable_id"], name: "index_notifications_on_actionable"
     t.index ["actor_id"], name: "index_notifications_on_actor_id"
     t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable"
