@@ -6,7 +6,7 @@ class User < ApplicationRecord
   devise :omniauthable, omniauth_providers: %i[facebook]
 
   enum :account, [:private_account, :public_account], default: :private_account # 0 (default) => private_account in database
-  enum :email_notifications_frequency, [:daily, :hourly, :ten_minutes, :off] # 0 (default) => daily
+  enum :email_notifications_frequency, [:daily, :off] # 0 (default) => daily
 
   validates :name, presence: true, format: { with: /\A[^0-9`!@#\$%\^&*+_=]+\z/ }, unless: :private_account?
 
