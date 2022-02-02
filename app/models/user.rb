@@ -20,6 +20,7 @@ class User < ApplicationRecord
   has_many :notifications, foreign_key: :recipient_id, inverse_of: :recipient, dependent: :delete_all
   has_many :actored_notifications, class_name: "Notification", foreign_key: :actor_id, inverse_of: :actor, dependent: :delete_all
   has_many :answers, dependent: :delete_all
+  has_many :votes, dependent: :delete_all
 
 
   def set_account!(account)
