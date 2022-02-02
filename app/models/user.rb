@@ -48,7 +48,7 @@ class User < ApplicationRecord
 
   def notify_for_new_notifications_by_email
     if notifications.new_for_email.any?
-      UserMailer.with(user: self).new_notifications
+      UserMailer.with(user: self).new_notifications.deliver_now
       notifications.new_for_email.update_all(notified_by_email: true)
     end
   end
