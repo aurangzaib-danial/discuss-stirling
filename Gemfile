@@ -92,3 +92,4 @@ gem "kaminari", "~> 1.2"
 gem "ransack", "~> 2.5"
 
 gem "aws-sdk-s3", require: false
+gem "mailgun-ruby", "~> 1.2"
