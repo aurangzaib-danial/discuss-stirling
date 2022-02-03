@@ -1,4 +1,4 @@
-<p>You have <%= @user.notifications.new_for_email_count %> new notifications</p>
+<p>You have <%= @user.notifications.new_for_email_count %> new <%= "notification".pluralize(@notification_count) %></p>
 
 <%= link_to "Visit Discuss Stirling to view your notifications", root_url %><br><br>
 
